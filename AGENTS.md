@@ -45,7 +45,7 @@ Waiting on Mouzzam:
 | GitHub | https://github.com/crescitadigitaleitaly-ux/River-side-booking-demo- (private, branch `main`, pushed 19 Nov 2026) |
 | Google Drive | "Riverside Family Health – Appointment Demo" (id `1sp5i3hjy1LVk6dLo-DfIfYsb7geYcOPE`), subfolders 01 Evidence originals, 02 Evidence blurred, 03 Test reports, 04 Video recordings, 05 Video final, 06 Portfolio |
 | Live site (untouched) | https://dental.mouzzambuild.com, Hostinger `domains/mouzzambuild.com/public_html/dental`, tables `wp_` |
-| Staging | https://mouzzambuild.com/riverside-staging/ (HTTP password, user `rfhstaging`), folder `public_html/riverside-staging`, tables `stg_` in the same DB, `WP_ENVIRONMENT_TYPE=staging`, timezone America/Los_Angeles, all email blocked by `mu-plugins/000-staging-guard.php`, debug log `domains/mouzzambuild.com/rs-staging-debug.log` |
+| Staging | https://mouzzambuild.com/riverside-staging/ (HTTP password, user `review`), folder `public_html/riverside-staging`, tables `stg_` in the same DB, `WP_ENVIRONMENT_TYPE=staging`, timezone America/Los_Angeles, all email blocked by `mu-plugins/000-staging-guard.php`, debug log `domains/mouzzambuild.com/rs-staging-debug.log` |
 | Staging secrets | **Not in the repo.** Session scratchpad files: `staging-auth.txt` (folder password), `stg-helper.key`, `staff-users.json` (reception.demo / manager.demo / subscriber.demo passwords). Mouzzam should copy them into his password manager; they are lost when the scratchpad is cleared (then regenerate via the helper). |
 | Theme backup before changes | staging `wp-content/rb-theme-backup-20261119-002143/` |
 | Hub notes for the live site | `Desktop\projects\live-websites\hostinger\riverside-health\CLAUDE.md` |
