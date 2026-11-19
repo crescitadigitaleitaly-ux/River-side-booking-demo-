@@ -28,7 +28,7 @@ Last updated: 19 Nov 2026.
    - **A Google Drive folder named after the project** for screenshots, videos, reports and documents, plus copies of `CLAUDE.md`, `AGENTS.md` and the plan.
    - Local copies of heavy files are deleted only after the Drive upload is checked **and** he agrees.
 6. **Save tokens.** Use the cheapest model or agent that fits the job: smaller models or subagents for searching, uploads, bulk edits and test runs; the strongest model for design and tricky logic.
-7. **Free tools only**, unless he decides otherwise. Mention free tools that would help.
+7. **Free tools only**, unless he decides otherwise. Mention free tools that would help. Demo projects show capability, not a funded business: integrations (payments, email) are real but in sandbox/test mode or clearly simulated, never real charges or real recipients, and the output must still be client-grade.
 8. **Language:** short, simple English. If he writes in Urdu, reply in **Roman Urdu** (never Hindi script).
 
 ## 3. Platform content rules (screenshots, videos, portfolio)

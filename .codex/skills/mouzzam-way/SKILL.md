@@ -19,6 +19,8 @@ description: Use at the start of EVERY task for Mouzzam Channa (web development,
 7. **Platform content rules.** Public images/videos follow Upwork and Fiverr rules: blur emails, phones (even fake), WhatsApp and URLs; no platform names in videos; call to action "send me a message"; never show "Crescita Digitale Italia" in Fiverr material.
 8. **Language.** Short, simple English. If he writes in Urdu/Hindi, reply in Roman Urdu (Latin letters).
 
+**Demo projects** (most projects): zero cost (free tools, plugins, tiers only), real integrations in sandbox/test mode (payments in test mode or clearly simulated, emails to a test outbox), client-grade output, honest demo labels.
+
 ## What Cloud can and cannot do
 - **Can:** write and fix code in this repo, run tests, open pull requests.
 - **Cannot:** reach his Hostinger account, WordPress sites (Novamira) or Google Drive; those logins live only on his laptop. Leave a clear note in `AGENTS.md` ("needs Local Codex or Claude: deploy / Drive upload") instead of trying.
