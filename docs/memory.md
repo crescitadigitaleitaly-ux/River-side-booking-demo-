@@ -83,7 +83,7 @@ Keep this table and the hub README in sync whenever a site is added, moved or de
 
 | Project | Folder | Status (19 Nov 2026) |
 |---|---|---|
-| Riverside Family Health: booking + reception demo | `Desktop\projects\riverside-booking-case-study` | Built on staging, 13/13 tests pass; code on GitHub; waiting: production OK, video |
+| Riverside Family Health: booking + reception demo | `Desktop\projects\riverside-booking-case-study` | Built on staging, 13/13 tests, video done (1:47); NEXT: SEO/AEO/performance tests + proof screenshots, then next project |
 | Solar quote system case study | `Desktop\projects\solar-quote-case-study` | Built, tested, video made; Drive upload in progress |
 | HVAC WordPress bug-fix case study | `Desktop\projects\hvac-case-study` | Done; waiting for his review; `hvac-staging` to delete after OK |
 | Portfolio repair (12 demo sites) | progress log `Desktop\portfolio-repair-progress.md` | One site at a time, approval after each |
@@ -98,5 +98,7 @@ Keep this table and the hub README in sync whenever a site is added, moved or de
 - Drive uploads through the connector: about 10 MB per file at most; bigger videos he drags in himself.
 
 ## Change log
+
+- 2026-11-19 03:25: Riverside video done; next session = SEO/AEO/performance tests with proof screenshots (see project CLAUDE.md "NEXT SESSION").
 
 - 2026-11-19: file created from the assistant's saved notes; business details in section 1 still to be completed together.

@@ -2,6 +2,24 @@
 
 > Same full context as CLAUDE.md (keep both in sync). Read `Desktop/projects/memory.md` (full path C:/Users/MouzzamChanna/Desktop/projects/memory.md) first for business + working rules: plan first and build after OK, staging only, honest fictional data, code to GitHub, media to the Drive folder, update CLAUDE.md + AGENTS.md after every session.
 
+## NEXT SESSION (planned with Mouzzam, 19 Nov 2026, 03:25): SEO, AEO and performance tests + proof screenshots
+
+Mouzzam asked: add SEO, AEO (AI-search readiness) and performance tests, with proper screenshots as proof. Then move on to the next project.
+
+Plan (do in this order, plan first and confirm with him before changing anything):
+1. **Important limit:** staging is password-protected and noindex, so Google PageSpeed Insights, Rich Results Test and AEO checkers **cannot reach it**. Options to propose:
+   a. Run Lighthouse locally on staging through Playwright with the password (performance, SEO, accessibility, best practices; mobile + desktop, 3 runs, report median, with date and settings), plus our own checks (meta, headings, structured data, robots, llms.txt).
+   b. And/or deploy to the live demo first (needs his OK), then run the public tools: PageSpeed Insights, Rich Results Test / Schema validator, W3C validator, an AEO audit (same method as the solar case study: AEO 83 → 93%).
+2. Before/after: measure the **live site now** (before the upgrade) and after deploy, so numbers are honest comparisons. Note: the theme sends noindex on purpose (demo site) — explain that in the report; SEO score may flag it.
+3. Possible improvements to suggest (only after measuring): structured data (MedicalClinic / Physician / FAQPage schema), llms.txt, meta descriptions per page, image alt checks, booking page speed (JS ~10 KB, CSS ~4 KB).
+4. Proof screenshots: PageSpeed / Lighthouse report pages, Rich Results result, validator results, AEO score page — full-frame with date visible; make blurred platform-safe copies (URLs/emails/phones blurred) for Upwork/Fiverr.
+5. Add results to TEST-REPORT.md (new section "Quality: SEO / AEO / performance"), upload screenshots to Drive (01 originals, 02 blurred, 03 reports), commit + push, update CLAUDE.md/AGENTS.md/memory.md.
+6. Optionally add a short results card to the video (re-render, no new voice credits needed if we only change pictures).
+
+Reference for method and tools: `Desktop\projects\solar-quote-case-study` (TEST-REPORT.md, quality/ screenshots, AEO audit) and `Desktop\projects\hvac-case-study\scripts\lh.mjs` (Lighthouse via Playwright Chromium; Hostinger blocks the Lighthouse CLI launcher).
+
+Also still open: production deploy decision; hvac-staging deletion.
+
 ## Goal
 
 Turn the fictional Riverside Family Health WordPress demo (https://dental.mouzzambuild.com, theme `riverside-health`) into a working **appointment-request + reception-management** demo for Mouzzam's Upwork/Fiverr portfolio, with no paid plugins. Fictional data only. Built and tested on a **staging copy**. Production changes only after Mouzzam explicitly says so.
