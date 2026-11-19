@@ -1,5 +1,8 @@
 # CLAUDE.md: Riverside Family Health booking + reception demo
 
+> **Codex (Local or Cloud):** use the `mouzzam-way` skill in `.codex/skills/` first. Full Codex guide: `codex-onboarding/` in the hub repo `-private-repo-live-websites`. Code and docs go to GitHub; screenshots and videos go to the project's Google Drive folder.
+
+
 > Read `Desktop\projects\memory.md` first (business + working rules), then this file. `AGENTS.md` holds the same context for Codex.
 
 ## UPDATE (19 Nov 2026, ~16:05): staff content editing LIVE

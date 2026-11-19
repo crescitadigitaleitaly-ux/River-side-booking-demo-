@@ -1,5 +1,8 @@
 # AGENTS.md: Riverside Family Health booking + reception demo (for Codex and other coding agents)
 
+> **Codex (Local or Cloud):** use the `mouzzam-way` skill in `.codex/skills/` first. Full Codex guide: `codex-onboarding/` in the hub repo `-private-repo-live-websites`. Code and docs go to GitHub; screenshots and videos go to the project's Google Drive folder.
+
+
 > Same full context as CLAUDE.md (keep both in sync). Read `Desktop/projects/memory.md` (full path C:/Users/MouzzamChanna/Desktop/projects/memory.md) first for business + working rules: plan first and build after OK, staging only, honest fictional data, code to GitHub, media to the Drive folder, update CLAUDE.md + AGENTS.md after every session.
 
 ## UPDATE (19 Nov 2026, ~16:05): staff content editing LIVE
