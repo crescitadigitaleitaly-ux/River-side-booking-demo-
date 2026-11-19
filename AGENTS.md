@@ -13,7 +13,7 @@ Turn the fictional Riverside Family Health WordPress demo (https://dental.mouzza
 Waiting on Mouzzam:
 1. ~~Create GitHub repo~~ Done: code, screenshots and docs pushed to `River-side-booking-demo-`.
 2. Review staging and decide on **deploying to the live demo** (see "Deploy to production" below).
-3. Approve the video plan (PLAN.md §13) before voice-over credits are spent.
+3. Review the case-study video (built 19 Nov, see "Video" below) and say what to change.
 4. Fill the business details in `memory.md` §1.
 
 ## What was built
@@ -71,6 +71,14 @@ Uses the global Playwright install (Chromium, `--disable-quic`). About 2–3 min
 3. Activate the plugin in wp-admin (creates tables, roles and the Manage page), set the timezone to Los Angeles, then Reception → Settings & demo → Reset demo data.
 4. Create the demo reception user for the case study (optional).
 5. Run the acceptance tests against production with a staging-free variant, or check by hand: dentistry → Romano, submit, confirm, outbox.
+
+## Video (19 Nov 2026)
+
+- **Final:** `video/riverside-booking-case-study.mp4` (1:47, 1920×1080, −16.4 LUFS, master 10.9 MB, local only, gitignored). Drive: `05 Video – final/riverside-booking-case-study (Drive copy, 7 MB).mp4` (two-pass 420 kbit/s; the Drive connector accepts at most ~7 MB raw) + `.en.srt`. The master can be dragged into Drive by hand.
+- Order (Mouzzam asked for an overview first): title → site tour → how it's built → why it matters → BEFORE (live site, read-only, nothing submitted) → AFTER booking form → reception confirm → conflict refused → test outbox → patient cancel link → 13/13 tests → "send me a message".
+- Voice: ElevenLabs clone, two takes joined (overview 507 credits + main 1,285 credits = 1,792 credits). Flow `nTLx5ozlLQeOYMayRuyE`. Script: `video-src/voiceover-script.md`.
+- Rebuild: `node scripts/record.mjs` (staging recordings; needs STG_AUTH + STG_KEY_FILE), `node scripts/cards.mjs`, `python scripts/transcribe.py video/audio/voice-full.mp3 video/audio/words.json` (+ fix the "reception" marker if it matches the overview), `python scripts/align_subs.py video/audio/words.json video/subtitle-text.txt`, `node scripts/build-video.mjs`.
+- Privacy: on staging, recording mode (cookie `rb_rec=1`, staging helper) masks emails, phones and the domain **in the HTML before it is sent**; a client-side blur is a second layer. A CSS blur alone left the first frames after each page load readable, so don't rely on it.
 
 ## Decisions
 
