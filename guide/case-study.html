@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Riverside Family Health – case study</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; color: #1f2d33; font-size: 10.5pt; line-height: 1.5; }
+  .page { width: 210mm; height: 297mm; padding: 16mm 15mm 14mm; position: relative; page-break-after: always; overflow: hidden; }
+  .page:last-child { page-break-after: auto; }
+  .dark { background: #0B1D22; color: #ECF5F4; }
+  .eyebrow { color: #0f766e; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-size: 9pt; }
+  .dark .eyebrow { color: #2DD4BF; }
+  h1 { font-size: 26pt; line-height: 1.1; margin: 6pt 0 8pt; letter-spacing: -.01em; }
+  h2 { font-size: 18pt; line-height: 1.15; margin: 4pt 0 6pt; color: #0f2530; }
+  h1 em, h2 em { font-style: normal; color: #2DD4BF; }
+  h2 em { color: #0f766e; }
+  .lead { color: #5b6b75; font-size: 11.5pt; margin: 0 0 10pt; }
+  .dark .lead { color: #9DB6B5; }
+  img { width: 100%; display: block; border-radius: 6px; }
+  .shot { border: 1px solid #d9e3e8; margin: 6pt 0 3pt; }
+  .cap { color: #5b6b75; font-size: 8.5pt; margin: 0 0 8pt; }
+  ul { margin: 4pt 0 8pt 14pt; padding: 0; } li { margin: 2.5pt 0; }
+  li b { color: #0f2530; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; }
+  .box { background: #eef7f6; border-left: 4px solid #0f766e; padding: 7pt 11pt; margin: 8pt 0; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; margin: 10pt 0; }
+  .stat { background: #12282E; border: 1px solid #1E3A41; border-radius: 10px; padding: 9pt 11pt; }
+  .stat b { display: block; font-size: 20pt; color: #2DD4BF; line-height: 1.1; }
+  .stat span { color: #9DB6B5; font-size: 9pt; }
+  .foot { position: absolute; left: 15mm; right: 15mm; bottom: 8mm; color: #8a99a3; font-size: 8pt; display: flex; justify-content: space-between; }
+  .dark .foot { color: #6f8a8c; }
+  .cta { background: #0f766e; color: #fff; border-radius: 10px; padding: 10pt 14pt; font-size: 12pt; margin-top: 10pt; }
+  .tech { display: flex; flex-wrap: wrap; gap: 5pt; margin: 6pt 0; }
+  .tech span { border: 1px solid #d9e3e8; border-radius: 999px; padding: 3pt 9pt; font-size: 9pt; }
+</style>
+</head>
+<body>
+
+<!-- 1. Cover -->
+<section class="page dark">
+  <div class="eyebrow">Case study · WordPress clinic website</div>
+  <h1>Riverside Family Health:<br><em>booking, reception desk and staff-editable content</em></h1>
+  <p class="lead">A demo website for a family clinic (fictional clinic, people and data). Custom WordPress theme and booking plugin, no paid plugins.</p>
+  <img src="../evidence/portfolio-cover.jpg" alt="Website, mobile booking form and staff admin panel">
+  <div class="stats">
+    <div class="stat"><b>100</b><span>PageSpeed performance, accessibility, best practices</span></div>
+    <div class="stat"><b>A / A+</b><span>Security headers A · SSL A+</span></div>
+    <div class="stat"><b>14 / 14</b><span>Automated tests pass</span></div>
+  </div>
+  <div class="foot"><span>Demo clinic · fictional data · contact details masked</span><span>1 / 5</span></div>
+</section>
+
+<!-- 2. Problem + patients -->
+<section class="page">
+  <div class="eyebrow">The problem</div>
+  <h2>The old form <em>looked fine but checked nothing</em></h2>
+  <ul>
+    <li>A patient could pick Family Dentistry and still choose the heart doctor.</li>
+    <li>Sundays and closed days were accepted.</li>
+    <li>Reception had no way to see or manage the requests.</li>
+  </ul>
+  <div class="eyebrow" style="margin-top:12pt">For patients</div>
+  <h2>Booking that only offers <em>real free times</em></h2>
+  <div class="grid2">
+    <div><img class="shot" src="../video/cards/phones.png" alt="Booking on phones"><p class="cap">Works on every phone size (0 px sideways scroll on 5 devices).</p></div>
+    <div>
+      <ul>
+        <li><b>Right doctors only:</b> each service shows only the doctors who offer it.</li>
+        <li><b>Real availability:</b> times come from each doctor's hours, the visit length, holidays and closures.</li>
+        <li><b>Clear status:</b> every request gets a reference and stays pending until reception confirms it.</li>
+        <li><b>Self-service:</b> a secure one-time link lets the patient cancel or change the time; the slot opens again for others.</li>
+        <li><b>Safe by design:</b> spam protection, rate limits, no medical details collected.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot"><span>Riverside Family Health · case study</span><span>2 / 5</span></div>
+</section>
+
+<!-- 3. Reception -->
+<section class="page">
+  <div class="eyebrow">For reception</div>
+  <h2>Every request in <em>one dashboard</em></h2>
+  <img class="shot" src="../video/admin/shots-clean/01-menu.png" alt="Reception dashboard">
+  <p class="cap">Reception desk: today's numbers, filters, and one-click actions on every request.</p>
+  <ul>
+    <li><b>One click</b> confirms, declines, reschedules, cancels or completes an appointment, with a full history.</li>
+    <li><b>No double bookings:</b> if two people confirm the same time, the system checks again and only one goes through (tested in parallel).</li>
+    <li><b>Overlap warnings</b> show reception when two requests ask for the same time.</li>
+    <li><b>Patient messages</b> (receipt, confirmation, reschedule, cancellation, reminder) are written automatically. In this demo they go to a test outbox, never to a real inbox.</li>
+    <li><b>Roles:</b> reception staff manage appointments; only the clinic manager changes clinic settings.</li>
+  </ul>
+  <div class="foot"><span>Riverside Family Health · case study</span><span>3 / 5</span></div>
+</section>
+
+<!-- 4. Staff editing -->
+<section class="page">
+  <div class="eyebrow">For the clinic manager</div>
+  <h2>The team updates the website. <em>No developer needed.</em></h2>
+  <div class="grid2">
+    <div><img class="shot" src="../video/admin/shots-clean/04-notice.png" alt="Clinic details and notice bar"><p class="cap">Clinic details &amp; hours: phone, email, address, opening hours and a dated notice bar.</p></div>
+    <div><img class="shot" src="../video/admin/shots-clean/07-site.png" alt="Website with notice bar"><p class="cap">Saved: the notice and the new hours appear on every page at once.</p></div>
+    <div><img class="shot" src="../video/admin/shots-clean/10-doctor-hours.png" alt="Doctor working hours"><p class="cap">Doctor availability: working hours, split shifts and days off.</p></div>
+    <div><img class="shot" src="../video/admin/shots-clean/11-closures.png" alt="Closures and holidays"><p class="cap">Holidays, training days and leave disappear from booking at once.</p></div>
+  </div>
+  <div class="box"><b>Mistakes are caught:</b> if something is wrong (for example a closing time before the opening time) nothing is saved and the page says what to fix. Header, footer, contact page, booking page and the information Google reads all update from the same place.</div>
+  <div class="foot"><span>Riverside Family Health · case study</span><span>4 / 5</span></div>
+</section>
+
+<!-- 5. Quality + tech -->
+<section class="page">
+  <div class="eyebrow">Tested before handover</div>
+  <h2>Measured like a <em>real client site</em></h2>
+  <img class="shot" src="../video/cards/results.png" alt="Before and after results">
+  <p class="cap">Before → after at go-live (13 booking tests then; the 14th, staff editing, was added later). The SEO score is limited only because this demo is hidden from Google on purpose.</p>
+  <div class="eyebrow" style="margin-top:6pt">14 automated tests, all passing</div>
+  <div class="grid2" style="gap:0 8mm">
+    <ul>
+      <li>Each service shows only its doctors</li>
+      <li>Closed days and wrong times are rejected</li>
+      <li>Request saved with reference, pending</li>
+      <li>Shows up in reception at once</li>
+      <li>Two confirmations: only one wins</li>
+      <li>Patient link cancels and frees the time</li>
+      <li>Staff reschedule keeps the booking</li>
+    </ul>
+    <ul>
+      <li>No access without the right role</li>
+      <li>Messages go to the test outbox only</li>
+      <li>Works on a 375 px phone</li>
+      <li>No browser console errors</li>
+      <li>Staff edits show on the website and in Google data</li>
+      <li>Invalid hours are refused</li>
+      <li>Reception can't change clinic settings</li>
+    </ul>
+  </div>
+  <div class="eyebrow" style="margin-top:8pt">Built with</div>
+  <div class="tech"><span>WordPress</span><span>Custom theme</span><span>Custom booking plugin (PHP)</span><span>JavaScript</span><span>REST API</span><span>MySQL</span><span>Schema.org structured data</span><span>Playwright tests</span><span>No paid plugins</span></div>
+  <div class="cta"><b>Need a clinic website your team can actually manage?</b> Send me a message.</div>
+  <div class="foot"><span>Demo clinic · fictional data · contact details masked</span><span>5 / 5</span></div>
+</section>
+
+</body>
+</html>

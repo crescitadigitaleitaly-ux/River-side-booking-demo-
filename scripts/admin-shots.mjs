@@ -6,7 +6,9 @@
 import { createRequire } from 'node:module'; import { execSync } from 'node:child_process'; import fs from 'node:fs'; import path from 'node:path';
 const require = createRequire(path.join(execSync('npm root -g').toString().trim(), 'noop.js')); const pw = require('playwright');
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Z]:)/, '$1')), '..');
-const OUT = path.join(ROOT, 'video', 'admin', 'shots'); fs.mkdirSync(OUT, { recursive: true });
+// CLEAN=1: no spotlight (used for the portfolio cover), saved to video/admin/shots-clean.
+const CLEAN = process.env.CLEAN === '1';
+const OUT = path.join(ROOT, 'video', 'admin', CLEAN ? 'shots-clean' : 'shots'); fs.mkdirSync(OUT, { recursive: true });
 const STG = 'https://mouzzambuild.com/riverside-staging';
 const [U, P] = process.env.STG_AUTH.split(':'); const KEY = fs.readFileSync(process.env.STG_KEY_FILE, 'utf8').trim();
 const H = { headers: { 'X-RB-STG': KEY } };
@@ -24,12 +26,12 @@ let page;
 // otherwise the browser rejects the masked email and the masked text would be saved.
 const REAL = { phone: '(555) 014-2200', urgent: '(555) 014-2299', email: 'care@riversidefamilyhealth.example', maps: 'https://www.google.com/maps/search/?api=1&query=1200+Riverbend+Avenue+Riverside+CA' };
 const save = async () => { for (const [k, v] of Object.entries(REAL)) await page.fill('#rb-' + k, v); await page.click('.rb-wrap button.button-primary'); await page.waitForLoadState('load'); await page.addStyleTag({ content: CSS }); };
-const go = async (url) => { await page.goto(STG + url, { waitUntil: 'load' }); await page.addStyleTag({ content: CSS }); };
+const go = async (url) => { await page.goto(STG + url, { waitUntil: 'load' }); await page.addStyleTag({ content: CSS }); if (CLEAN) await page.evaluate(() => { window.__clean = true; }); };
 const shot = async (name, sel, { center = true } = {}) => {
 	await page.evaluate(([s, c]) => {
 		document.querySelectorAll('.rb-hl').forEach((e) => e.classList.remove('rb-hl'));
 		const el = s && document.querySelector(s);
-		if (el) { el.classList.add('rb-hl'); if (c) el.scrollIntoView({ block: 'center' }); } else window.scrollTo(0, 0);
+		if (el) { if (!window.__clean) el.classList.add('rb-hl'); if (c) el.scrollIntoView({ block: 'center' }); } else window.scrollTo(0, 0);
 	}, [sel, center]);
 	await page.waitForTimeout(400);
 	await page.screenshot({ path: path.join(OUT, name + '.png') });

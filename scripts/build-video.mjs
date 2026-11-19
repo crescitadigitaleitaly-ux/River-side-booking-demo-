@@ -16,11 +16,11 @@ const enc = ["-r", "30", "-c:v", "libx264", "-preset", "slow", "-crf", "18", "-p
 const esc = (t) => t.replace(/\\/g, "\\\\").replace(/:/g, "\\:").replace(/'/g, "\u2019").replace(/%/g, "\\%");
 
 const LEAD = 0.6, TAIL = 2.6;
-const W = JSON.parse(fs.readFileSync(`${A}/words-final.json`, "utf8"));
+const W = JSON.parse(fs.readFileSync(`${A}/words-combined.json`, "utf8"));
 const S = W.sections;
-const order = ["functions", "tech", "value", "problem", "solution", "reception", "conflict", "email", "patient", "tests", "quality", "outro"];
+const order = ["functions", "tech", "value", "problem", "solution", "reception", "conflict", "email", "patient", "a_intro", "a_menu", "a_contact", "a_hours", "a_notice", "a_error", "a_saved", "a_site", "a_doctors", "a_doctorhours", "a_closures", "a_roles", "tests", "quality", "outro"];
 for (const k of order) if (S[k] == null) throw new Error(`marker "${k}" missing`);
-const END = probe(`${A}/voice-final.mp3`) + LEAD + TAIL;
+const END = probe(`${A}/voice-combined.mp3`) + LEAD + TAIL;
 const v = (t) => (t === 0 ? 0 : t + LEAD);
 
 const card = (name) => ({ kind: "card", file: `${CARDS}/${name}.png` });
@@ -28,6 +28,9 @@ const card = (name) => ({ kind: "card", file: `${CARDS}/${name}.png` });
 const SAFE = `${ROOT}/evidence/quality/safe`;
 // Proof screenshot (never enlarged beyond 1.4x, so text stays sharp) with a title and a label.
 const shot = (file, title, label = "PROOF") => ({ kind: "shot", file, title, label });
+// Admin panel stills: exact 1920x1080 captures (scripts/admin-shots.mjs), shown pixel-for-pixel with a step label.
+const AD = `${V}/admin`;
+const screen = (name, step) => ({ kind: "screen", file: `${AD}/shots/${name}.png`, step });
 const clip = (name, from, to, caption, tone = "after", max = 1.35) => ({ kind: "clip", file: `${REC}/${name}.webm`, from, to, caption, tone, max });
 
 const sections = [
@@ -40,7 +43,19 @@ const sections = [
 	[S.reception, S.conflict, [clip("reception", 2.4, 13.2, "Reception dashboard: one-click confirm", "after", 1.6)]],
 	[S.conflict, S.email, [clip("conflict", 9.2, 15.6, "Same time, second confirmation: refused")]],
 	[S.email, S.patient, [clip("outbox", 9.0, 19.5, "Test outbox: no real emails are sent")]],
-	[S.patient, S.tests, [clip("patient", 15.5, 22.0, "Patient's secure link: cancel")]],
+	[S.patient, S.a_intro, [clip("patient", 15.5, 22.0, "Patient's secure link: cancel")]],
+	[S.a_intro, S.a_menu, [{ kind: "card", file: `${AD}/admin-title.png` }]],
+	[S.a_menu, S.a_contact, [screen("01-menu", "1  Everything under Reception")]],
+	[S.a_contact, S.a_hours, [screen("02-contact", "2  Phone, email, address")]],
+	[S.a_hours, S.a_notice, [screen("03-hours", "3  Opening hours")]],
+	[S.a_notice, S.a_error, [screen("04-notice", "4  Notice bar with dates")]],
+	[S.a_error, S.a_saved, [screen("05-error", "5  Mistakes are refused")]],
+	[S.a_saved, S.a_site, [screen("06-saved", "6  Saved")]],
+	[S.a_site, S.a_doctors, [screen("07-site", "7  Live on the website"), screen("08-footer", "7  Hours updated everywhere")]],
+	[S.a_doctors, S.a_doctorhours, [screen("09-doctors", "8  Doctors at a glance")]],
+	[S.a_doctorhours, S.a_closures, [screen("10-doctor-hours", "9  A doctor's working hours")]],
+	[S.a_closures, S.a_roles, [screen("11-closures", "10  Holidays and leave")]],
+	[S.a_roles, S.tests, [screen("12-reception-blocked", "11  Reception can't change settings")]],
 	[S.tests, S.quality, [card("tests")]],
 	[S.quality, S.outro, [card("results"), shot(`${SAFE}/after-psi-book-mobile.jpg`, "Google PageSpeed: booking page on mobile", "SPEED"), shot(`${SAFE}/after-security-headers.jpg`, "Security headers: D to A", "SECURITY"), shot(`${SAFE}/after-security-observatory.jpg`, "Mozilla Observatory: D to B+", "SECURITY"), shot(`${SAFE}/after-security-ssllabs.jpg`, "SSL Labs: A+", "SECURITY"), shot(`${SAFE}/after-schema-validator-home.jpg`, "Structured data: 0 errors", "SEO + AI"), shot(`${SAFE}/after-rich-results-patients.jpg`, "Google Rich Results: valid", "SEO + AI"), shot(`${CARDS}/phones.png`, "Works on every phone size", "MOBILE")], [1.7, 1, 1, 1, 1, 1, 1, 1.1]],
 	[S.outro, null, [card("outro")]],
@@ -57,6 +72,13 @@ for (const [a, b, items, weights] of sections) {
 		const fade = "fade=t=in:st=0:d=0.3";
 		if (it.kind === "card") {
 			ff(["-loop", "1", "-framerate", "30", "-t", String(dur), "-i", it.file, "-vf", `scale=1920:1080:flags=lanczos,${fade}`, ...enc, out]);
+		} else if (it.kind === "screen") {
+			// Exact-size still; a small step label sits inside the dark admin bar (top-right), so nothing is covered.
+			const tw = Math.round(it.step.length * 14.5 + 40);
+			ff(["-loop", "1", "-framerate", "30", "-t", String(dur), "-i", it.file, "-vf",
+				`scale=1920:1080:flags=lanczos,drawbox=x=${1920 - tw - 24}:y=6:w=${tw}:h=38:color=0xF59E0B@0.95:t=fill,` +
+				`drawtext=fontfile='${font}':text='${esc(it.step)}':fontcolor=0x111827:fontsize=26:x=${1920 - tw - 24 + 20}:y=12,${fade}`,
+				...enc, out]);
 		} else if (it.kind === "shot") {
 			ff(["-loop", "1", "-framerate", "30", "-t", String(dur), "-i", it.file, "-filter_complex",
 				`color=c=0x0B1D22:s=1920x1080:r=30:d=${dur}[bg];` +
@@ -110,7 +132,7 @@ ff(["-i", "picture.mp4", "-loop", "1", "-i", `${A}/face-bubble.png`, "-filter_co
 	...enc, "picture-final.mp4"], TMP);
 
 // Audio: voice + quiet looping music ducked under the voice, two-pass loudness to -16 LUFS.
-ff(["-i", `${A}/voice-final.mp3`, "-stream_loop", "-1", "-i", `${A}/music.mp3`, "-filter_complex",
+ff(["-i", `${A}/voice-combined.mp3`, "-stream_loop", "-1", "-i", `${A}/music.mp3`, "-filter_complex",
 	`[1:a]atrim=0:${END.toFixed(2)},asetpts=PTS-STARTPTS,volume=-22dB,afade=t=in:st=0:d=1.5,afade=t=out:st=${(END - 3).toFixed(2)}:d=3[m];` +
 	`[0:a]aresample=44100,adelay=${LEAD * 1000}|${LEAD * 1000},apad=whole_dur=${END.toFixed(2)},asplit=2[vo][key];` +
 	`[m][key]sidechaincompress=threshold=0.015:ratio=8:attack=25:release=600[md];[vo][md]amix=inputs=2:normalize=0:duration=first`,
