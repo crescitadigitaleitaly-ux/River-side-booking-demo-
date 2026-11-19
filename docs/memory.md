@@ -1,6 +1,7 @@
 # memory.md: Mouzzam's business, working rules and project index
 
 A shared, living file. Any AI tool (Claude Code, Codex, others) should read this **first**, then the project's own `CLAUDE.md` / `AGENTS.md`.
+Codex onboarding (connections, playbooks, skills map, how to split work with Claude): `Desktop\projects\codex-onboarding\` (backup in the hub repo, folder `codex-onboarding/`).
 Mouzzam and the assistant improve it together. When something changes, edit it here and note the date in the change log at the bottom.
 Last updated: 19 Nov 2026.
 
@@ -22,6 +23,7 @@ Last updated: 19 Nov 2026.
 4. **Staging first.** Never change a live/production site without his explicit instruction. Use a staging copy (e.g. `mouzzambuild.com/<name>-staging/` with `stg_` tables), a password, and a mail block.
 5. **Every project has:**
    - `CLAUDE.md` **and** `AGENTS.md` (the same full context, so the work can continue in Codex): goal, plan, done, left, where files, servers and repos are, rules, how to run tests.
+   - A copy of the Codex skill `.codex/skills/mouzzam-way/SKILL.md` (from the hub repo), so Codex Cloud knows these rules.
    - **Code on GitHub**, committed as work progresses.
    - **A Google Drive folder named after the project** for screenshots, videos, reports and documents, plus copies of `CLAUDE.md`, `AGENTS.md` and the plan.
    - Local copies of heavy files are deleted only after the Drive upload is checked **and** he agrees.
@@ -103,6 +105,10 @@ Keep this table and the hub README in sync whenever a site is added, moved or de
 - Drive uploads through the connector: about 10 MB per file at most; bigger videos he drags in himself.
 
 ## Change log
+
+- 2026-11-19 21:15: Codex works Local (not Cloud): skill + Hostinger + WordPress tested. Rule refined: plan + OK only for changes, read-only checks run directly. Added `06-github-and-drive.md`; repo skill `.codex/skills/mouzzam-way` in hub + Riverside for Codex Cloud; hub now has AGENTS.md.
+
+- 2026-11-19 20:30: Codex onboarding written (`codex-onboarding/`): global `~/.codex/AGENTS.md`, skill `mouzzam-way` + 23 skills copied into `~/.codex/skills`; found Codex had no Hostinger/WordPress MCP configured; default split = Codex codes/tests, Claude deploys/tests in Chrome/Drive/videos.
 
 - 2026-11-19 18:58: Riverside admin-panel walkthrough video (his voice, 1:21) built and on Drive; Mouzzam prefers a video over a PDF guide for showing clients how to edit.
 - 2026-11-19 16:05: Riverside staff content editing (clinic details & hours, notice bar, doctor hours) live after backup; PSI mobile still 100/100/100; staff guide PDF on Drive.
