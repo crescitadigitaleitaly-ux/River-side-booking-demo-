@@ -2,23 +2,16 @@
 
 > Read `Desktop\projects\memory.md` first (business + working rules), then this file. `AGENTS.md` holds the same context for Codex.
 
-## NEXT SESSION (planned with Mouzzam, 19 Nov 2026, 03:25): SEO, AEO and performance tests + proof screenshots
+## STATUS (19 Nov 2026, ~15:10): LIVE + QUALITY-TESTED
 
-Mouzzam asked: add SEO, AEO (AI-search readiness) and performance tests, with proper screenshots as proof. Then move on to the next project.
+- **Live on https://dental.mouzzambuild.com** (Mouzzam approved "Everything" on 19 Nov): booking plugin + reception desk + `riverside-hardening` plugin + theme 1.2.0 (SEO/tags/schema/AEO). One-time go-live setup ran (tables, roles, Manage page, timezone Los Angeles, demo seed: 8 services, 6 doctors, 13 sample appointments) and deleted itself. Leftover "Hello world" posts set to draft. `readme.html`/`license.txt` blocked in `.htaccess`. Hostinger's auto `llms.txt` renamed to `llms.txt.hostinger-bak` (theme serves an accurate one; rename again if Hostinger AI regenerates it).
+- **Backup before go-live:** on the server outside public_html, folder `rs-live-backup-20261119-133811/` (theme files, `.htaccess`, old `llms.txt`, SQL dump of `wp_` tables). Roll back: restore theme + SQL, deactivate the two plugins.
+- **Quality tests (before → after):** see `QUALITY-REPORT.md`. PageSpeed 100/100/100 (SEO 61–66 only because the demo is noindex on purpose); security headers D→A; Observatory D 35→B+ 80; SSL A→A+; schema none→8 items 0 errors; Rich Results valid; W3C booking 1→0 errors; AEO 59%→85%; 13/13 booking tests; 0 px sideways scroll on 5 devices.
+- **Tool notes:** PageSpeed, securityheaders, Observatory, SSL Labs, Schema validator, Rich Results and W3C refuse automated browsers, so run them in Mouzzam's Chrome (Claude in Chrome). Mobile screenshots + own checks: `node scripts/quality.mjs <label> security tags mobile`. AEO: AEOTester audit on the live URL. Blurred copies: `python scripts/blur-quality.py`.
+- **Final video:** `video/riverside-booking-case-study.mp4` (overview, problem, solution, booking tests, before/after quality results, CTA). Voice credits used in total: 1,285 + 507 + 533 = 2,325.
+- **Demo staff accounts exist only on staging** (reception.demo / manager.demo; passwords are kept out of this repo, Mouzzam has them).
 
-Plan (do in this order, plan first and confirm with him before changing anything):
-1. **Important limit:** staging is password-protected and noindex, so Google PageSpeed Insights, Rich Results Test and AEO checkers **cannot reach it**. Options to propose:
-   a. Run Lighthouse locally on staging through Playwright with the password (performance, SEO, accessibility, best practices; mobile + desktop, 3 runs, report median, with date and settings), plus our own checks (meta, headings, structured data, robots, llms.txt).
-   b. And/or deploy to the live demo first (needs his OK), then run the public tools: PageSpeed Insights, Rich Results Test / Schema validator, W3C validator, an AEO audit (same method as the solar case study: AEO 83 → 93%).
-2. Before/after: measure the **live site now** (before the upgrade) and after deploy, so numbers are honest comparisons. Note: the theme sends noindex on purpose (demo site) — explain that in the report; SEO score may flag it.
-3. Possible improvements to suggest (only after measuring): structured data (MedicalClinic / Physician / FAQPage schema), llms.txt, meta descriptions per page, image alt checks, booking page speed (JS ~10 KB, CSS ~4 KB).
-4. Proof screenshots: PageSpeed / Lighthouse report pages, Rich Results result, validator results, AEO score page — full-frame with date visible; make blurred platform-safe copies (URLs/emails/phones blurred) for Upwork/Fiverr.
-5. Add results to TEST-REPORT.md (new section "Quality: SEO / AEO / performance"), upload screenshots to Drive (01 originals, 02 blurred, 03 reports), commit + push, update CLAUDE.md/AGENTS.md/memory.md.
-6. Optionally add a short results card to the video (re-render, no new voice credits needed if we only change pictures).
-
-Reference for method and tools: `Desktop\projects\solar-quote-case-study` (TEST-REPORT.md, quality/ screenshots, AEO audit) and `Desktop\projects\hvac-case-study\scripts\lh.mjs` (Lighthouse via Playwright Chromium; Hostinger blocks the Lighthouse CLI launcher).
-
-Also still open: production deploy decision; hvac-staging deletion.
+Next ideas (not started): A+ on securityheaders by moving inline JS to files + CSP nonces; swap the hero photo (its badge shows a real institution's name); delete staging copies when no longer needed (`riverside-staging`, `hvac-staging`); next project.
 
 ## Goal
 

@@ -83,7 +83,7 @@ Keep this table and the hub README in sync whenever a site is added, moved or de
 
 | Project | Folder | Status (19 Nov 2026) |
 |---|---|---|
-| Riverside Family Health: booking + reception demo | `Desktop\projects\riverside-booking-case-study` | Built on staging, 13/13 tests, video done (1:47); NEXT: SEO/AEO/performance tests + proof screenshots, then next project |
+| Riverside Family Health: booking + reception demo | `Desktop\projects\riverside-booking-case-study` | LIVE 19 Nov; quality-tested (security D to A, SSL A+, AEO 59 to 85%); final video with results; next project |
 | Solar quote system case study | `Desktop\projects\solar-quote-case-study` | Built, tested, video made; Drive upload in progress |
 | HVAC WordPress bug-fix case study | `Desktop\projects\hvac-case-study` | Done; waiting for his review; `hvac-staging` to delete after OK |
 | Portfolio repair (12 demo sites) | progress log `Desktop\portfolio-repair-progress.md` | One site at a time, approval after each |
@@ -92,12 +92,19 @@ Keep this table and the hub README in sync whenever a site is added, moved or de
 
 ## 7. Lessons learned (add as we go)
 
+- Public test tools (PageSpeed Insights, securityheaders.com, Mozilla Observatory, SSL Labs, W3C, Rich Results) refuse automated browsers: run them in his real Chrome via Claude in Chrome and keep the report link + screenshot.
+- A strict Content-Security-Policy blocks the WordPress emoji script (blob worker): remove the emoji script instead of loosening the CSP.
+- Demo sites stay `noindex` (fictional businesses must not rank); say so honestly when SEO scores are capped.
+- Never write passwords into CLAUDE.md/AGENTS.md or anything pushed to GitHub.
+
 - Copying a WordPress site to staging: include all uploads/CSS caches; rewrite the domain in cached CSS.
 - Hostinger CDN (`hcdn`) can cache HTML and compress images; booking or availability data must come from no-store API calls.
 - Creating GitHub repos through the API with his stored login is blocked by the safety check, so he creates empty repos on github.com and we push.
 - Drive uploads through the connector: about 10 MB per file at most; bigger videos he drags in himself.
 
 ## Change log
+
+- 2026-11-19 15:10: Riverside booking system + security/SEO/AEO fixes went live after Mouzzam's OK; handover tests with proof (QUALITY-REPORT.md).
 
 - 2026-11-19 03:25: Riverside video done; next session = SEO/AEO/performance tests with proof screenshots (see project CLAUDE.md "NEXT SESSION").
 
