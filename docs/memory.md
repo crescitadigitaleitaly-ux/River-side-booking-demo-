@@ -104,6 +104,7 @@ Keep this table and the hub README in sync whenever a site is added, moved or de
 
 ## Change log
 
+- 2026-11-19 18:58: Riverside admin-panel walkthrough video (his voice, 1:21) built and on Drive; Mouzzam prefers a video over a PDF guide for showing clients how to edit.
 - 2026-11-19 16:05: Riverside staff content editing (clinic details & hours, notice bar, doctor hours) live after backup; PSI mobile still 100/100/100; staff guide PDF on Drive.
 - 2026-11-19 15:10: Riverside booking system + security/SEO/AEO fixes went live after Mouzzam's OK; handover tests with proof (QUALITY-REPORT.md).
 

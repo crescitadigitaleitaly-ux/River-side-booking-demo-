@@ -19,7 +19,7 @@ for seg in segments:
     for w in seg.words:
         words.append({"w": w.word.strip(), "s": round(w.start, 2), "e": round(w.end, 2)})
 
-markers = {
+markers = {} if len(sys.argv) > 3 else {
     "intro": ["hi"],
     "functions": ["patients", "can", "explore"],
     "tech": ["i", "built", "it"],
@@ -33,6 +33,8 @@ markers = {
     "tests": ["i", "tested", "everything"],
     "outro": ["if", "your", "clinic"],
 }
+if len(sys.argv) > 3:
+    markers = json.load(open(sys.argv[3], encoding="utf8"))
 norm = lambda s: s.lower().strip(".,:!?")
 lw = [norm(w["w"]) for w in words]
 sections = {}

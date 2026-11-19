@@ -12,7 +12,9 @@
 - **Backup before this deploy:** `domains/mouzzambuild.com/rs-live-backup-20261119-150343-content-edit/` (theme, both plugins, SQL dump of all `wp_` tables).
 - **Live check after deploy:** pages 200 with no errors, theme 1.3.0 loaded, hours + schema render; PageSpeed mobile 100/100/100, SEO 61 (noindex on purpose). Proof: `evidence/quality/after/psi-mobile-after-content-editing.jpg`.
 - **Client guide:** `guide/How-to-update-your-website.pdf` (masked screenshots, rebuild with `scripts/guide-shots.mjs` + `scripts/guide-pdf.mjs`). Drive: PDF in 06 Portfolio, guide images in 02 (blurred), screenshots 17/18 in 01 (originals).
-- **Not done yet:** short video scene "staff update hours/notice -> site updates" (needs ~250-300 voice credits; ask before spending).
+- **Admin panel video (Mouzzam asked for a video instead of the PDF):** `video/riverside-admin-panel.mp4` (1:21, 1920x1080, -16 LUFS, his cloned voice, 1,273 credits). 11 full-HD stills, spotlight on the part being explained, step labels, subtitles, face bubble. Drive: `05 Video – final/riverside-admin-panel (staff can update the website).mp4` (4.3 MB) + `.en.srt`.
+  - Rebuild: `node scripts/admin-shots.mjs` (staging, manager login, masked; resets demo data), `python scripts/transcribe.py video/audio/admin-voice.mp3 video/audio/admin-words.json video-src/admin-markers.json`, `python scripts/align_subs.py video/audio/admin-words.json video-src/admin-subtitle-text.txt`, `node scripts/build-admin-video.mjs`. Script: `video-src/admin-voiceover-script.md`.
+  - Lesson: recording mode masks form values too, so before saving a form in a recording, fill the real fictional values back (the browser rejects a masked email and masked text would be saved).
 
 ## STATUS (19 Nov 2026, ~15:10): LIVE + QUALITY-TESTED
 
