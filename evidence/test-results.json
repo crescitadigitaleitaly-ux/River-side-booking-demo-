@@ -1,0 +1,167 @@
+{
+  "when": "2026-11-19T00:36:39.917Z",
+  "base": "https://mouzzambuild.com/riverside-staging",
+  "seconds": 164,
+  "passed": 13,
+  "total": 13,
+  "results": [
+    {
+      "id": "0",
+      "name": "Demo data reset on staging",
+      "pass": true,
+      "detail": {
+        "ok": true,
+        "services": 8,
+        "doctors": 6,
+        "appointments": 13
+      }
+    },
+    {
+      "id": "1",
+      "name": "Each service shows only its mapped doctors (Family Dentistry → Dr. Romano only)",
+      "pass": true,
+      "detail": {
+        "servicesChecked": 8,
+        "mismatches": [],
+        "dentistryOptions": [
+          "No preference (first available)",
+          "Dr. Sofia Romano – Family & Cosmetic Dentistry"
+        ],
+        "forgedDentistryWithCardiologist": 422
+      }
+    },
+    {
+      "id": "2",
+      "name": "Closed days and unavailable times cannot be booked",
+      "pass": true,
+      "detail": {
+        "sundayShownClosed": true,
+        "closureShown": "Thanksgiving (clinic closed)",
+        "forgedSunday": 422,
+        "forgedSaturdayEvening": 422,
+        "forgedClosureDay": 422,
+        "forgedOffGrid": 422
+      }
+    },
+    {
+      "id": "3",
+      "name": "Visitor submits a request through the form and gets a reference, status Pending",
+      "pass": true,
+      "detail": {
+        "reference": "RFH-Q32G-70",
+        "status": "Pending"
+      }
+    },
+    {
+      "id": "4",
+      "name": "The submitted request appears in the reception dashboard",
+      "pass": true,
+      "detail": {
+        "found": true
+      }
+    },
+    {
+      "id": "5",
+      "name": "Two competing requests: only one can be confirmed for the same time",
+      "pass": true,
+      "detail": [
+        {
+          "status": 200,
+          "msg": "confirmed"
+        },
+        {
+          "status": 409,
+          "msg": "Sorry, this time has just been booked. Please choose another time."
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Staff confirmation updates the record and creates the confirmation test notification",
+      "pass": true,
+      "detail": {
+        "confirmedInDb": true,
+        "notifications": [
+          "Request received",
+          "Confirmation"
+        ]
+      }
+    },
+    {
+      "id": "7",
+      "name": "Cancellation (patient secure link) releases the time for others",
+      "pass": true,
+      "detail": {
+        "takenBefore": true,
+        "freeAfter": true,
+        "reusedLink": 410
+      }
+    },
+    {
+      "id": "8",
+      "name": "Unauthorised users cannot view or change bookings",
+      "pass": true,
+      "detail": {
+        "anonList": 401,
+        "anonConfirm": 401,
+        "anonStaffSlots": 401,
+        "badToken": 404,
+        "subscriberAdminPage": 403,
+        "subscriberRest": 403,
+        "receptionSettings": 403,
+        "receptionPlugins": 403
+      }
+    },
+    {
+      "id": "9",
+      "name": "Duplicate submissions, spam honeypot and rate limit are handled",
+      "pass": true,
+      "detail": {
+        "first": 201,
+        "duplicateSameReference": true,
+        "honeypotStoredNothing": true,
+        "burstStatuses": [
+          201,
+          201,
+          201,
+          201,
+          429,
+          429
+        ]
+      }
+    },
+    {
+      "id": "10",
+      "name": "Staff reschedule keeps the booking confirmed and creates a reschedule notification",
+      "pass": true,
+      "detail": {
+        "status": "RFH-5B2K-56 Confirmed",
+        "notifications": [
+          "Request received",
+          "Confirmation",
+          "Reschedule"
+        ]
+      }
+    },
+    {
+      "id": "11",
+      "name": "Notifications stay in the test outbox (no real recipient)",
+      "pass": true,
+      "detail": {
+        "messages": 27,
+        "deliveryNotes": [
+          "Test outbox only"
+        ]
+      }
+    },
+    {
+      "id": "12",
+      "name": "Booking form works on a 375 px phone with no console errors and no sideways scroll",
+      "pass": true,
+      "detail": {
+        "overflowPx": 0,
+        "consoleErrors": []
+      }
+    }
+  ]
+}

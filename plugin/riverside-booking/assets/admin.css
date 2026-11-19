@@ -1,0 +1,45 @@
+/* Riverside Booking – reception desk. */
+.rb-wrap { max-width: 1280px; }
+.rb-sub { margin: .25rem 0 1rem; color: #50575e; }
+.rb-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin: 0 0 16px; }
+.rb-kpi { background: #fff; border: 1px solid #dcdcde; border-radius: 10px; padding: 14px 16px; display: grid; gap: 2px; }
+.rb-kpi__n { font-size: 28px; font-weight: 700; color: #0f766e; line-height: 1.1; }
+.rb-kpi__l { color: #50575e; font-size: 13px; }
+.rb-filters { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: flex-end; background: #fff; border: 1px solid #dcdcde; border-radius: 10px; padding: 12px 14px; margin-bottom: 14px; }
+.rb-filters label { display: grid; gap: 3px; font-size: 12px; font-weight: 600; color: #3c434a; }
+.rb-table td { vertical-align: middle; }
+.rb-table .rb-ref, .rb-wrap h1 { font-family: ui-monospace, Menlo, Consolas, monospace; }
+.rb-wrap h1.wp-heading-inline { font-family: inherit; }
+.rb-ref { font-weight: 700; text-decoration: none; }
+.rb-dim { color: #646970; font-size: 12px; }
+.rb-actions .button { margin: 2px 0; }
+.rb-danger, .rb-danger-link { color: #b32d2e !important; border-color: #b32d2e !important; }
+.rb-pill { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: 12px; font-weight: 700; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; vertical-align: middle; }
+.rb-pill--pending { background: #fef3c7; color: #92400e; }
+.rb-pill--confirmed { background: #dcfce7; color: #166534; }
+.rb-pill--declined, .rb-pill--canceled { background: #fee2e2; color: #991b1b; }
+.rb-pill--completed { background: #e0e7ff; color: #3730a3; }
+.rb-flag { display: inline-block; margin-left: 4px; padding: 0 6px; border-radius: 4px; background: #f0f0f1; color: #50575e; font-size: 11px; }
+.rb-flag--warn { background: #fff4e5; color: #9a3412; }
+.rb-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 16px; margin-bottom: 16px; }
+.rb-card { background: #fff; border: 1px solid #dcdcde; border-radius: 10px; padding: 16px 20px; }
+.rb-card h2 { margin-top: 0; font-size: 16px; }
+.rb-dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 0 0 12px; }
+.rb-dl dt { color: #646970; }
+.rb-dl dd { margin: 0; font-weight: 600; }
+.rb-pre { white-space: pre-line; background: #f6f7f7; padding: 8px 10px; border-radius: 6px; }
+.rb-history { margin: 0; padding-left: 18px; }
+.rb-history li { margin-bottom: 8px; }
+.rb-notice:empty { display: none; }
+.rb-notice .notice { margin: 8px 0 12px; }
+.rb-days { display: flex; gap: 6px; overflow-x: auto; padding: 8px 0; }
+.rb-day { flex: none; display: grid; justify-items: center; min-width: 64px; padding: 6px; border: 1px solid #c3c4c7; border-radius: 8px; background: #fff; cursor: pointer; font-size: 12px; }
+.rb-day b { font-size: 13px; }
+.rb-day.is-active { border-color: #0f766e; background: #e6f4f2; }
+.rb-day:disabled { background: #f6f7f7; color: #a7aaad; cursor: not-allowed; }
+.rb-slots { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 10px; }
+.rb-slots label { border: 1px solid #c3c4c7; border-radius: 6px; padding: 4px 8px; cursor: pointer; }
+.rb-slots input { margin-right: 4px; }
+.rb-type { font-weight: 600; }
+.rb-mail__frame { width: 100%; min-height: 640px; border: 1px solid #dcdcde; border-radius: 8px; background: #fff; }
+@media (max-width: 782px) { .rb-grid { grid-template-columns: 1fr; } }

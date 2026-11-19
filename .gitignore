@@ -1,0 +1,11 @@
+node_modules/
+.env
+*.key
+staff-users.json
+staging-auth.txt
+evidence/screenshots/
+evidence/*.log
+*.mp4
+*.mp3
+*.wav
+*.zip

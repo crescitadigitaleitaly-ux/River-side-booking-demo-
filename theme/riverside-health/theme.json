@@ -1,0 +1,61 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+		"appearanceTools": true,
+		"color": {
+			"defaultPalette": false,
+			"defaultGradients": false,
+			"palette": [
+				{ "slug": "primary", "name": "Teal", "color": "#0F766E" },
+				{ "slug": "primary-dark", "name": "Deep teal", "color": "#115E59" },
+				{ "slug": "primary-soft", "name": "Mint", "color": "#E7F5F2" },
+				{ "slug": "ink", "name": "Ink", "color": "#0F2A3D" },
+				{ "slug": "text", "name": "Text", "color": "#40566A" },
+				{ "slug": "surface", "name": "White", "color": "#FFFFFF" },
+				{ "slug": "surface-alt", "name": "Mist", "color": "#F3F8FA" },
+				{ "slug": "line", "name": "Line", "color": "#DDE7ED" }
+			]
+		},
+		"layout": { "contentSize": "760px", "wideSize": "1200px" },
+		"typography": {
+			"defaultFontSizes": false,
+			"fontFamilies": [
+				{
+					"fontFamily": "\"Plus Jakarta Sans\", system-ui, -apple-system, \"Segoe UI\", sans-serif",
+					"name": "Plus Jakarta Sans",
+					"slug": "body",
+					"fontFace": [
+						{
+							"fontFamily": "Plus Jakarta Sans",
+							"fontStyle": "normal",
+							"fontWeight": "200 800",
+							"fontDisplay": "swap",
+							"src": [ "file:./assets/fonts/plus-jakarta-sans-latin-wght-normal.woff2" ]
+						}
+					]
+				}
+			],
+			"fontSizes": [
+				{ "slug": "small", "name": "Small", "size": "0.875rem" },
+				{ "slug": "medium", "name": "Medium", "size": "1.0625rem" },
+				{ "slug": "large", "name": "Large", "size": "1.25rem" },
+				{ "slug": "x-large", "name": "Extra large", "size": "clamp(1.75rem, 3vw, 2.5rem)" }
+			]
+		},
+		"spacing": { "defaultSpacingSizes": false }
+	},
+	"styles": {
+		"color": { "background": "var(--wp--preset--color--surface)", "text": "var(--wp--preset--color--text)" },
+		"typography": { "fontFamily": "var(--wp--preset--font-family--body)", "fontSize": "var(--wp--preset--font-size--medium)", "lineHeight": "1.65" },
+		"spacing": { "blockGap": "0", "padding": { "left": "0", "right": "0" } },
+		"elements": {
+			"link": { "color": { "text": "var(--wp--preset--color--primary)" } },
+			"heading": { "color": { "text": "var(--wp--preset--color--ink)" }, "typography": { "fontWeight": "700", "lineHeight": "1.2" } }
+		}
+	},
+	"templateParts": [
+		{ "name": "header", "title": "Header", "area": "header" },
+		{ "name": "footer", "title": "Footer", "area": "footer" }
+	]
+}

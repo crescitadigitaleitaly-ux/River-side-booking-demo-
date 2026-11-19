@@ -1,0 +1,55 @@
+/* Riverside Booking – front end. Uses the theme's colour variables. */
+/* Grid/flex children default to min-width:auto; without this the 14-day strip widens the page on phones. */
+.rh-book-layout > *, .rb-booking, .rb-form, .rb-days-nav { min-width: 0; }
+.rb-step { margin: 0 0 1.75rem; padding: 0; border: 0; min-width: 0; }
+.rb-step__title { display: flex; align-items: center; gap: .6rem; margin-bottom: 1rem; color: var(--rh-ink, #0f2530); font-weight: 700; font-size: 1.05rem; }
+.rb-step__n { display: inline-grid; place-items: center; width: 1.75rem; height: 1.75rem; border-radius: 50%; background: var(--rh-primary, #0f766e); color: #fff; font-size: .9rem; }
+.rb-help { margin: .4rem 0 0; font-size: .85rem; color: #5b6b75; }
+.rb-muted { margin: .25rem 0; color: #5b6b75; font-size: .92rem; }
+.rb-days-nav { display: flex; align-items: stretch; gap: .5rem; }
+.rb-days { display: flex; gap: .5rem; overflow-x: auto; padding: .2rem .1rem .6rem; scroll-snap-type: x proximity; flex: 1; min-width: 0; }
+.rb-navbtn { flex: none; width: 2.25rem; border: 1.5px solid #c9d6de; border-radius: 10px; background: #fff; color: var(--rh-ink, #0f2530); font-size: 1.3rem; cursor: pointer; }
+.rb-navbtn:disabled { opacity: .35; cursor: default; }
+.rb-day { flex: none; display: grid; justify-items: center; gap: .1rem; min-width: 4.6rem; padding: .55rem .5rem; border: 1.5px solid #c9d6de; border-radius: 12px; background: #fff; color: var(--rh-ink, #0f2530); font: inherit; cursor: pointer; scroll-snap-align: start; transition: border-color .15s, background .15s; }
+.rb-day:hover:not(:disabled) { border-color: var(--rh-primary, #0f766e); }
+.rb-day.is-active { border-color: var(--rh-primary, #0f766e); background: var(--rh-soft, #e6f4f2); box-shadow: 0 0 0 3px rgba(15,118,110,.15); }
+.rb-day.is-off { background: #f3f5f7; color: #8a99a3; cursor: not-allowed; border-style: dashed; }
+.rb-day__dow { font-size: .75rem; text-transform: uppercase; letter-spacing: .05em; font-weight: 700; }
+.rb-day__date { font-weight: 700; font-size: .98rem; }
+.rb-day__info { font-size: .72rem; white-space: nowrap; max-width: 6.5rem; overflow: hidden; text-overflow: ellipsis; }
+.rb-day:not(.is-off) .rb-day__info { color: var(--rh-primary, #0f766e); font-weight: 600; }
+.rb-slots { margin-top: .75rem; }
+.rb-slotgroup { margin-bottom: .75rem; }
+.rb-slotgroup__t { margin: 0 0 .4rem; font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: #5b6b75; }
+.rb-slotgroup__list { display: flex; flex-wrap: wrap; gap: .45rem; }
+.rb-slot { position: relative; }
+.rb-slot input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.rb-slot span { display: inline-block; min-width: 5.2rem; padding: .5rem .7rem; border: 1.5px solid #c9d6de; border-radius: 10px; background: #fff; text-align: center; font-weight: 600; font-size: .92rem; }
+.rb-slot input:focus-visible + span { outline: 3px solid rgba(15,118,110,.35); outline-offset: 2px; }
+.rb-slot input:checked + span { background: var(--rh-primary, #0f766e); border-color: var(--rh-primary, #0f766e); color: #fff; }
+.rb-summary { margin: 0 0 1rem; padding: .85rem 1rem; border-radius: 10px; background: var(--rh-soft, #e6f4f2); color: var(--rh-ink, #0f2530); font-size: .95rem; }
+.rb-submit.is-busy { opacity: .7; cursor: progress; }
+.rb-success { text-align: left; }
+.rb-success:focus { outline: none; }
+.rb-success h2, .rb-manage__title { margin: .25rem 0 .5rem; font-size: 1.5rem; }
+.rb-success__icon { display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%; background: #ecfdf5; color: #047857; font-size: 1.5rem; font-weight: 700; }
+.rb-ref { font-size: 1.05rem; }
+.rb-ref strong { font-family: ui-monospace, Menlo, Consolas, monospace; letter-spacing: .03em; }
+.rb-pill { display: inline-block; padding: .15rem .6rem; border-radius: 999px; font-size: .8rem; font-weight: 700; vertical-align: middle; }
+.rb-pill--pending { background: #fef3c7; color: #92400e; }
+.rb-pill--confirmed { background: #dcfce7; color: #166534; }
+.rb-pill--canceled, .rb-pill--declined { background: #fee2e2; color: #991b1b; }
+.rb-pill--completed { background: #e0e7ff; color: #3730a3; }
+.rb-dl { display: grid; grid-template-columns: max-content 1fr; gap: .4rem 1rem; margin: 1rem 0 1.25rem; }
+.rb-dl dt { color: #5b6b75; }
+.rb-dl dd { margin: 0; font-weight: 600; color: var(--rh-ink, #0f2530); }
+.rb-manage-wrap { max-width: 720px; }
+.rb-manage__actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-bottom: 1.25rem; }
+.rb-manage__move h2 { font-size: 1.1rem; margin: 1rem 0 .75rem; }
+.rb-manage__move .rh-btn { margin-top: .5rem; }
+@media (max-width: 640px) {
+	.rb-booking .rh-form__grid { grid-template-columns: 1fr; }
+	.rb-navbtn { width: 2rem; }
+	.rb-day { min-width: 4.2rem; }
+	.rb-slot span { min-width: 4.6rem; }
+}
