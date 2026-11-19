@@ -70,14 +70,24 @@ function rb_clean_admin_bar( $bar ) {
 	if ( ! array_intersect( array( 'rb_reception', 'rb_clinic_manager' ), (array) $user->roles ) ) {
 		return;
 	}
+	// Top-level items sit in the 'root-default' group (left side); keep only the site name and menu toggle.
 	foreach ( $bar->get_nodes() as $node ) {
-		if ( ! in_array( $node->id, array( 'site-name', 'view-site', 'my-account', 'user-actions', 'user-info', 'edit-profile', 'logout', 'top-secondary', 'menu-toggle' ), true ) && ! $node->parent ) {
+		if ( in_array( $node->parent, array( false, '', 'root-default' ), true ) && ! in_array( $node->id, array( 'site-name', 'menu-toggle', 'top-secondary', 'root-default' ), true ) || str_contains( $node->id, 'hostinger' ) ) {
 			$bar->remove_node( $node->id );
 		}
 	}
 	$bar->add_node( array( 'id' => 'rb-desk', 'title' => 'Reception desk', 'href' => admin_url( 'admin.php?page=rb-reception' ) ) );
 }
-add_action( 'admin_bar_menu', 'rb_clean_admin_bar', 999 );
+// Runs after every plugin (e.g. Hostinger) has added its items.
+add_action(
+	'wp_before_admin_bar_render',
+	function () {
+		global $wp_admin_bar;
+		if ( $wp_admin_bar instanceof WP_Admin_Bar ) {
+			rb_clean_admin_bar( $wp_admin_bar );
+		}
+	}
+);
 
 /**
  * Status pill.

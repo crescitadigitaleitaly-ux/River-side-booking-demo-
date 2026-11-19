@@ -262,9 +262,11 @@ await step('10', 'Staff reschedule keeps the booking confirmed and creates a res
 	await rPage.waitForSelector('[data-rb-rslots] input', { timeout: 20000 });
 	await rPage.locator('[data-rb-rslots] input').first().check();
 	await rPage.screenshot({ path: path.join(SHOTS, '14-staff-reschedule.png'), fullPage: true });
+	// The page reloads itself after a successful move; wait for that reload before navigating on.
+	const reloaded = rPage.waitForEvent('load', { timeout: 30000 });
 	await rPage.click('[data-rb-rsave]');
 	await rPage.waitForSelector('[data-rb-notice] .notice-success', { timeout: 20000 });
-	await rPage.waitForTimeout(1500);
+	await reloaded;
 	await rPage.goto(`${BASE}/wp-admin/admin.php?page=rb-reception&view=${target.id}`, { waitUntil: 'domcontentloaded' });
 	const head = await rPage.textContent('h1');
 	const notes = await rPage.$$eval('.rb-card a[href*="rb-outbox&msg="]', (as) => as.map((a) => a.textContent));

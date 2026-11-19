@@ -12,6 +12,26 @@ if ( 'staging' !== wp_get_environment_type() ) {
 	return;
 }
 
+/*
+ * Recording mode (cookie rb_rec=1, staging only): mask emails, phone numbers and the site domain in the HTML
+ * before it is sent, so screen recordings can never show contact details (Upwork/Fiverr rules). Links keep working.
+ */
+if ( isset( $_COOKIE['rb_rec'] ) && '1' === $_COOKIE['rb_rec'] ) {
+	add_action(
+		'init',
+		function () {
+			ob_start(
+				function ( $html ) {
+					$html = preg_replace( '/[A-Za-z0-9._%+-]+@(?!media|import|font-face|keyframes|supports|charset)[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)+/', '•••••@•••••', $html );
+					$html = preg_replace( '/\(555\)\s?\d{3}-\d{4}|\+1555\d{7}|555-01\d\d/', '(•••) •••-••••', $html );
+					return preg_replace( '#(?<![/.\w-])(dental\.)?mouzzambuild\.com(?!/)#', '••••••.com', $html );
+				}
+			);
+		},
+		0
+	);
+}
+
 add_action(
 	'init',
 	function () {

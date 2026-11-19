@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Riverside video cards</title>
+<style>
+  :root { --bg:#0B1D22; --panel:#12282E; --line:#1E3A41; --ink:#ECF5F4; --muted:#9DB6B5; --accent:#2DD4BF; --ok:#34D399; --warn:#F87171; }
+  * { box-sizing:border-box; margin:0; }
+  body { width:1920px; height:1080px; background:var(--bg); color:var(--ink); font-family:"Segoe UI", Inter, Arial, sans-serif; overflow:hidden; }
+  .card { display:none; width:1920px; height:1080px; position:relative; padding:110px 140px 230px; background:
+    radial-gradient(1100px 600px at 88% 110%, rgba(45,212,191,.12), transparent 60%),
+    radial-gradient(900px 500px at 0% -10%, rgba(52,211,153,.07), transparent 60%), var(--bg); }
+  .card.on { display:flex; flex-direction:column; justify-content:center; }
+  .eyebrow { color:var(--accent); font-weight:700; letter-spacing:.14em; text-transform:uppercase; font-size:26px; }
+  h1 { font-size:88px; line-height:1.06; letter-spacing:-.025em; margin-top:24px; font-weight:800; }
+  h1 em, h2 em { font-style:normal; color:var(--accent); }
+  h2 { font-size:64px; line-height:1.1; letter-spacing:-.02em; margin-top:18px; font-weight:800; }
+  .lead { font-size:34px; color:var(--muted); margin-top:30px; max-width:1400px; line-height:1.4; }
+  .chips { display:flex; gap:18px; margin-top:56px; flex-wrap:wrap; }
+  .chip { border:1px solid var(--line); background:var(--panel); border-radius:999px; padding:16px 28px; font-size:28px; }
+  .chip b { color:var(--accent); }
+  .foot { position:absolute; left:140px; bottom:175px; color:var(--muted); font-size:24px; }
+  .grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:26px; margin-top:54px; }
+  .grid.two { grid-template-columns:repeat(2, 1fr); }
+  .box { background:var(--panel); border:1px solid var(--line); border-radius:24px; padding:32px 36px; }
+  .box .ic { width:54px; height:54px; border-radius:14px; display:grid; place-items:center; background:rgba(45,212,191,.14); color:var(--accent); font-size:28px; font-weight:800; margin-bottom:18px; }
+  .box h3 { font-size:32px; margin-bottom:10px; }
+  .box p { font-size:24px; color:var(--muted); line-height:1.45; }
+  .checks { display:grid; grid-template-columns:repeat(2, 1fr); gap:20px 46px; margin-top:50px; }
+  .t { display:flex; gap:18px; align-items:flex-start; font-size:30px; }
+  .t i { flex:none; width:40px; height:40px; border-radius:50%; background:rgba(52,211,153,.16); color:var(--ok); display:grid; place-items:center; font-style:normal; font-weight:800; font-size:24px; margin-top:2px; }
+  .bar { margin-top:46px; display:flex; gap:22px; flex-wrap:wrap; }
+  .bar span { border:1px solid var(--line); background:var(--panel); border-radius:16px; padding:14px 22px; font-size:25px; color:var(--muted); }
+  .bar b { color:var(--ok); }
+  .big { font-size:120px; font-weight:800; color:var(--accent); letter-spacing:-.03em; line-height:1; }
+</style>
+</head>
+<body>
+<section class="card" id="title">
+  <div class="eyebrow">Case study · WordPress booking system</div>
+  <h1>Riverside Family Health:<br><em>online booking that really works</em></h1>
+  <p class="lead">Demo clinic website · fictional data · built, tested and documented</p>
+  <div class="chips">
+    <div class="chip">Custom WordPress theme</div>
+    <div class="chip">Booking plugin · <b>PHP + JavaScript</b></div>
+    <div class="chip"><b>13 / 13</b> tests passed</div>
+  </div>
+</section>
+
+<section class="card" id="tech">
+  <div class="eyebrow">How it's built</div>
+  <h2>Light, fast and <em>no paid plugins</em></h2>
+  <div class="grid">
+    <div class="box"><div class="ic">W</div><h3>WordPress + custom theme</h3><p>Block theme with one stylesheet, a self-hosted font and almost no JavaScript.</p></div>
+    <div class="box"><div class="ic">&lt;/&gt;</div><h3>Own booking plugin</h3><p>PHP 8 and plain JavaScript. Services, doctors, hours and holidays editable in wp-admin.</p></div>
+    <div class="box"><div class="ic">DB</div><h3>Safe database</h3><p>Every request saved with a reference. A lock makes double bookings impossible.</p></div>
+    <div class="box"><div class="ic">API</div><h3>Live availability</h3><p>Small REST API, never cached, so patients always see real free times.</p></div>
+    <div class="box"><div class="ic">🔒</div><h3>Roles &amp; security</h3><p>Reception and manager roles, spam protection, rate limits, secure patient links.</p></div>
+    <div class="box"><div class="ic">✓</div><h3>Tested on staging</h3><p>13 automated browser checks. The live site was not touched during the work.</p></div>
+  </div>
+</section>
+
+<section class="card" id="value">
+  <div class="eyebrow">Why it matters for a clinic</div>
+  <h2>Less admin, <em>no double bookings</em></h2>
+  <div class="grid two">
+    <div class="box"><div class="ic">1</div><h3>Fewer phone calls</h3><p>Patients pick a real free time online, day or night, on any phone or computer.</p></div>
+    <div class="box"><div class="ic">2</div><h3>No double bookings</h3><p>A time can be confirmed only once, even if two people click at the same moment.</p></div>
+    <div class="box"><div class="ic">3</div><h3>One place for reception</h3><p>Every request in one dashboard: confirm, decline, move or cancel in one click.</p></div>
+    <div class="box"><div class="ic">4</div><h3>Patients help themselves</h3><p>A secure link to cancel or change, and the freed time opens up for others.</p></div>
+  </div>
+</section>
+
+<section class="card" id="tests">
+  <div class="eyebrow">Tested before launch</div>
+  <h2><em>13 of 13</em> automated checks pass</h2>
+  <div class="checks">
+    <div class="t"><i>✓</i>Each service shows only its doctors</div>
+    <div class="t"><i>✓</i>Closed days and wrong times rejected</div>
+    <div class="t"><i>✓</i>Request saved with reference, pending</div>
+    <div class="t"><i>✓</i>Shows up in reception at once</div>
+    <div class="t"><i>✓</i>Two confirmations: only one wins</div>
+    <div class="t"><i>✓</i>Cancel releases the time</div>
+    <div class="t"><i>✓</i>No access without the right role</div>
+    <div class="t"><i>✓</i>Works on a 375 px phone</div>
+  </div>
+  <div class="bar"><span>Bugs found by the tests and fixed: <b>phone layout</b>, <b>first activation</b></span><span>Messages: <b>test outbox only</b></span></div>
+</section>
+
+<section class="card" id="outro">
+  <div class="eyebrow">Demo clinic · fictional data</div>
+  <h1>Online booking<br>that <em>really works</em>.</h1>
+  <p class="lead">WordPress · custom booking systems · testing you can see</p>
+  <div class="chips"><div class="chip"><b>Send me a message</b></div></div>
+</section>
+<script>
+  const id = new URLSearchParams(location.search).get('card') || 'title';
+  document.getElementById(id).classList.add('on');
+</script>
+</body>
+</html>
