@@ -149,7 +149,7 @@ function rh_home_hero() {
 		. '</ul></div>'
 		. '<div class="rh-hero__media">'
 		. rh_img( 'hero', array( 800, 1400 ), 'A doctor in a white coat talking with a smiling patient in a bright consultation room', '(max-width: 900px) 100vw, 600px', 1600 / 1100, true )
-		. '<div class="rh-hero__card">' . rh_icon( 'clock' ) . '<div><strong>Opening hours</strong><span>Mon–Fri 8 am – 7 pm · Sat 9 am – 2 pm</span></div></div>'
+		. '<div class="rh-hero__card">' . rh_icon( 'clock' ) . '<div><strong>Opening hours</strong><span>' . esc_html( $c['hours_short'] ?? 'Mon–Fri 8 am – 7 pm · Sat 9 am – 2 pm' ) . '</span></div></div>'
 		. '</div></div></section>';
 }
 
@@ -404,10 +404,11 @@ function rh_header() {
 	$c     = rh_clinic();
 	$links = rh_nav_links();
 	return '<a class="rh-skip" href="#main">Skip to content</a>'
+		. ( function_exists( 'rb_site_notice' ) && rb_site_notice() ? '<div class="rh-notice-bar" role="status">' . rh_icon( 'alert' ) . ' ' . esc_html( rb_site_notice() ) . '</div>' : '' )
 		. '<div class="rh-demo-bar">Demo website by <a href="https://mouzzambuild.com/">Mouzzam Builds</a> — the clinic, people and data are fictional.</div>'
 		. '<div class="rh-topbar"><div class="rh-container"><ul>'
 		. '<li>' . rh_icon( 'phone' ) . ' <a href="tel:' . esc_attr( $c['phone_raw'] ) . '">' . esc_html( $c['phone'] ) . '</a></li>'
-		. '<li class="rh-hide-sm">' . rh_icon( 'clock' ) . ' Mon–Fri 8 am – 7 pm · Sat 9 am – 2 pm</li>'
+		. '<li class="rh-hide-sm">' . rh_icon( 'clock' ) . ' ' . esc_html( $c['hours_short'] ?? 'Mon–Fri 8 am – 7 pm · Sat 9 am – 2 pm' ) . '</li>'
 		. '</ul><ul><li class="rh-hide-sm">' . rh_icon( 'pin' ) . ' ' . esc_html( $c['address'] . ', ' . $c['city'] ) . '</li>'
 		. '<li>' . rh_icon( 'alert' ) . ' Emergency? Call 911</li></ul></div></div>'
 		. '<header class="rh-header"><div class="rh-container">' . rh_logo()

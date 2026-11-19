@@ -1,9 +1,9 @@
 {
-  "when": "2026-11-19T13:44:36.956Z",
+  "when": "2026-11-19T14:56:07.453Z",
   "base": "https://mouzzambuild.com/riverside-staging",
-  "seconds": 150,
-  "passed": 13,
-  "total": 13,
+  "seconds": 158,
+  "passed": 14,
+  "total": 14,
   "results": [
     {
       "id": "0",
@@ -48,7 +48,7 @@
       "name": "Visitor submits a request through the form and gets a reference, status Pending",
       "pass": true,
       "detail": {
-        "reference": "RFH-LB94-17",
+        "reference": "RFH-WYBZ-51",
         "status": "Pending"
       }
     },
@@ -135,7 +135,7 @@
       "name": "Staff reschedule keeps the booking confirmed and creates a reschedule notification",
       "pass": true,
       "detail": {
-        "status": "RFH-U9WA-18 Confirmed",
+        "status": "RFH-YJA2-80 Confirmed",
         "notifications": [
           "Request received",
           "Confirmation",
@@ -161,6 +161,19 @@
       "detail": {
         "overflowPx": 0,
         "consoleErrors": []
+      }
+    },
+    {
+      "id": "13",
+      "name": "Clinic manager edits phone, opening hours and a notice; the site updates; reception cannot edit; bad input is rejected",
+      "pass": true,
+      "detail": {
+        "phoneShown": true,
+        "hoursShown": true,
+        "noticeShown": true,
+        "schemaHours": true,
+        "badHoursRejected": true,
+        "receptionBlocked": true
       }
     }
   ]

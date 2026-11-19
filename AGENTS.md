@@ -2,6 +2,18 @@
 
 > Same full context as CLAUDE.md (keep both in sync). Read `Desktop/projects/memory.md` (full path C:/Users/MouzzamChanna/Desktop/projects/memory.md) first for business + working rules: plan first and build after OK, staging only, honest fictional data, code to GitHub, media to the Drive folder, update CLAUDE.md + AGENTS.md after every session.
 
+## UPDATE (19 Nov 2026, ~16:05): staff content editing LIVE
+
+- Clinic staff can now edit the everyday essentials themselves (scope agreed with Mouzzam: only daily essentials). Plugin `riverside-booking` 1.1.0 + theme 1.3.0, deployed to staging (14/14 tests) and then to live.
+  - **Reception -> Clinic details & hours** (`includes/content.php`, option `rb_clinic_info`, Clinic manager + admin only): phone, urgent line, email, address, Maps link, weekly opening hours (closed tick + time pickers), dated notice bar (shows only between From/Until, clinic time), "last changed by" log. Invalid input is rejected and nothing is saved.
+  - Header, footer, contact page, booking page, JSON-LD `openingHoursSpecification` and `llms.txt` all read from it (theme `rh_clinic` filter).
+  - **Doctor hours** use time pickers with a split-day pair and a "Day off" tick; the Doctors list shows services, weekday chips and online booking On/Off.
+  - Reception role cannot open these pages (tested).
+- **Backup before this deploy:** `domains/mouzzambuild.com/rs-live-backup-20261119-150343-content-edit/` (theme, both plugins, SQL dump of all `wp_` tables).
+- **Live check after deploy:** pages 200 with no errors, theme 1.3.0 loaded, hours + schema render; PageSpeed mobile 100/100/100, SEO 61 (noindex on purpose). Proof: `evidence/quality/after/psi-mobile-after-content-editing.jpg`.
+- **Client guide:** `guide/How-to-update-your-website.pdf` (masked screenshots, rebuild with `scripts/guide-shots.mjs` + `scripts/guide-pdf.mjs`). Drive: PDF in 06 Portfolio, guide images in 02 (blurred), screenshots 17/18 in 01 (originals).
+- **Not done yet:** short video scene "staff update hours/notice -> site updates" (needs ~250-300 voice credits; ask before spending).
+
 ## STATUS (19 Nov 2026, ~15:10): LIVE + QUALITY-TESTED
 
 - **Live on https://dental.mouzzambuild.com** (Mouzzam approved "Everything" on 19 Nov): booking plugin + reception desk + `riverside-hardening` plugin + theme 1.2.0 (SEO/tags/schema/AEO). One-time go-live setup ran (tables, roles, Manage page, timezone Los Angeles, demo seed: 8 services, 6 doctors, 13 sample appointments) and deleted itself. Leftover "Hello world" posts set to draft. `readme.html`/`license.txt` blocked in `.htaccess`. Hostinger's auto `llms.txt` renamed to `llms.txt.hostinger-bak` (theme serves an accurate one; rename again if Hostinger AI regenerates it).

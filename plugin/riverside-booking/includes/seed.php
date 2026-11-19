@@ -55,6 +55,7 @@ function rb_seed_demo() {
 	$doc_defaults          = function_exists( 'rh_doctors' ) ? rh_doctors() : array();
 	$GLOBALS['rb_seeding'] = false;
 
+	delete_option( 'rb_clinic_info' ); // Clinic details, hours and notice back to the defaults.
 	foreach ( get_posts( array( 'post_type' => array( 'rb_service', 'rb_doctor' ), 'post_status' => 'any', 'numberposts' => -1, 'fields' => 'ids' ) ) as $pid ) {
 		wp_delete_post( $pid, true );
 	}

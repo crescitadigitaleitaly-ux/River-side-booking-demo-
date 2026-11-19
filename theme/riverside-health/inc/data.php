@@ -17,7 +17,7 @@ defined( 'ABSPATH' ) || exit;
  * @return array
  */
 function rh_clinic() {
-	return array(
+	return apply_filters( 'rh_clinic', array(
 		'name'      => 'Riverside Family Health',
 		'phone'     => '(555) 014-2200',
 		'phone_raw' => '+15550142200',
@@ -31,7 +31,7 @@ function rh_clinic() {
 			array( 'Saturday', '9:00 am – 2:00 pm' ),
 			array( 'Sunday', 'Closed' ),
 		),
-	);
+	) );
 }
 
 /**

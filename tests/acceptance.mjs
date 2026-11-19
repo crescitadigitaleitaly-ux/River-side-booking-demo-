@@ -296,6 +296,41 @@ await step('12', 'Booking form works on a 375 px phone with no console errors an
 	record('12', 'Booking form works on a 375 px phone with no console errors and no sideways scroll', overflow <= 0 && !errors.length, { overflowPx: overflow, consoleErrors: errors });
 });
 
+
+// ---------------------------------------------------------------- 13 clinic content editing (everyday essentials)
+await step('13', 'Clinic manager edits phone, opening hours and a notice; the site updates; reception cannot edit; bad input is rejected', async () => {
+	const mgr = await staffContext('manager.demo');
+	const mp = await mgr.newPage();
+	await mp.goto(`${BASE}/wp-admin/admin.php?page=rb-clinic-info`, { waitUntil: 'domcontentloaded' });
+	await mp.fill('#rb-phone', '(555) 014-3300');
+	await mp.fill('input[name="hours[6][close]"]', '13:00');
+	await mp.check('input[name=notice_on]');
+	await mp.fill('#rb-notice-text', 'Closed on Thanksgiving, Thursday November 26.');
+	await mp.screenshot({ path: path.join(SHOTS, '17-clinic-details-editor.png'), fullPage: true });
+	await mp.click('button.button-primary.button-hero');
+	await mp.waitForSelector('.notice-success', { timeout: 20000 });
+	const home = await (await api.get(BASE + '/?t=' + Date.now())).text();
+	const c = {
+		phoneShown: home.includes('(555) 014-3300'),
+		hoursShown: /Sat 9 am – 1 pm/.test(home),
+		noticeShown: home.includes('Closed on Thanksgiving'),
+		schemaHours: home.includes('"closes":"13:00"'),
+	};
+	await mp.goto(BASE + '/', { waitUntil: 'domcontentloaded' });
+	await mp.screenshot({ path: path.join(SHOTS, '18-site-after-edit.png') });
+	// Bad input is refused and nothing is stored.
+	await mp.goto(`${BASE}/wp-admin/admin.php?page=rb-clinic-info`, { waitUntil: 'domcontentloaded' });
+	await mp.fill('input[name="hours[1][close]"]', '07:00');
+	await mp.click('button.button-primary.button-hero');
+	await mp.waitForSelector('.notice-error', { timeout: 20000 });
+	c.badHoursRejected = /Monday/.test(await mp.textContent('.notice-error'));
+	// Reception may not open the editor.
+	const rs = await rPage.goto(`${BASE}/wp-admin/admin.php?page=rb-clinic-info`, { waitUntil: 'domcontentloaded' });
+	c.receptionBlocked = rs.status() === 403;
+	await mgr.close();
+	record('13', 'Clinic manager edits phone, opening hours and a notice; the site updates; reception cannot edit; bad input is rejected', Object.values(c).every(Boolean), c);
+});
+
 // ---------------------------------------------------------------- finish
 await helper('seed'); // Leave staging in a clean demo state.
 await browser.close();

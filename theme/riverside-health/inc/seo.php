@@ -127,7 +127,7 @@ function rh_seo_schema( $url, $m ) {
 	$c     = rh_clinic();
 	$home  = home_url( '/' );
 	$id    = $home . '#clinic';
-	$days  = array(
+	$days  = $c['hours_spec'] ?? array(
 		array( array( 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' ), '08:00', '19:00' ),
 		array( array( 'Saturday' ), '09:00', '14:00' ),
 	);
@@ -231,7 +231,7 @@ function rh_seo_llms() {
 	}
 	$c   = rh_clinic();
 	$out = "# Riverside Family Health\n\n> Demo website of a fictional family clinic (family medicine, pediatrics, women's health, dentistry, heart health). Built by Mouzzam Builds as a portfolio project. The clinic, doctors, phone numbers and emails are fictional.\n\n";
-	$out .= "## Key facts\n\n- Address: {$c['address']}, {$c['city']} (fictional)\n- Hours: Monday–Friday 8:00–19:00, Saturday 9:00–14:00, Sunday closed\n- Booking: online requests show only real free times; reception confirms each request\n\n## Pages\n\n";
+	$out .= "## Key facts\n\n- Address: {$c['address']}, {$c['city']} (fictional)\n- Hours: " . implode( '; ', array_map( fn( $h ) => $h[0] . ' ' . $h[1], $c['hours'] ) ) . "\n- Booking: online requests show only real free times; reception confirms each request\n\n## Pages\n\n";
 	foreach ( rh_seo_pages() as $slug => $m ) {
 		if ( 'manage-appointment' === $slug ) {
 			continue;

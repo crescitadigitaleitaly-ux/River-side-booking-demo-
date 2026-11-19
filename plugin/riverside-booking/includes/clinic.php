@@ -191,11 +191,20 @@ function rb_render_doctor_services( $post ) {
  */
 function rb_render_doctor_hours( $post ) {
 	$hours = (array) get_post_meta( $post->ID, 'rb_hours', true );
-	echo '<p>Format: <code>08:00-12:00, 13:00-17:00</code> (15-minute steps, 24-hour clock, clinic time). Leave empty for a day off. Holidays and one-off blocks go under Reception → Closures.</p><table class="form-table" role="presentation">';
+	echo '<p>Times the doctor can see patients (clinic time). Use the second range for a split day, e.g. 08:00–12:00 and 13:00–17:00. Holidays and one-off absences go under Reception → Closures.</p>';
+	echo '<table class="rb-hours-table"><thead><tr><th>Day</th><th>Day off</th><th>From</th><th>To</th><th>From</th><th>To</th></tr></thead><tbody>';
 	foreach ( rb_weekdays() as $n => $label ) {
-		echo '<tr><th scope="row"><label for="rb_hours_' . (int) $n . '">' . esc_html( $label ) . '</label></th><td><input class="regular-text" id="rb_hours_' . (int) $n . '" name="rb_hours[' . (int) $n . ']" value="' . esc_attr( rb_ranges_text( $hours[ $n ] ?? array() ) ) . '" placeholder="Day off"></td></tr>';
+		$r   = $hours[ $n ] ?? array();
+		$off = empty( $r );
+		echo '<tr><th scope="row">' . esc_html( $label ) . '</th><td><input type="checkbox" name="rb_off[' . (int) $n . ']" value="1"' . checked( $off, true, false ) . ' aria-label="' . esc_attr( $label . ' day off' ) . '"></td>';
+		for ( $k = 0; $k < 2; $k++ ) {
+			foreach ( array( 0 => 'from', 1 => 'to' ) as $x => $what ) {
+				echo '<td><input type="time" step="900" name="rb_hours_ui[' . (int) $n . '][' . $k . '][' . $what . ']" value="' . esc_attr( $r[ $k ][ $x ] ?? '' ) . '" aria-label="' . esc_attr( $label . ' range ' . ( $k + 1 ) . ' ' . $what ) . '"></td>';
+			}
+		}
+		echo '</tr>';
 	}
-	echo '</table>';
+	echo '</tbody></table><p class="description">Times use 15-minute steps (e.g. 08:00, 08:15, 08:30).</p>';
 }
 
 /**
@@ -242,9 +251,22 @@ function rb_save_meta( $post_id, $post ) {
 
 		$hours  = array();
 		$errors = array();
-		$input  = (array) ( $_POST['rb_hours'] ?? array() ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- parsed strictly below.
+		$ui     = (array) ( $_POST['rb_hours_ui'] ?? array() ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- parsed strictly below.
+		$off    = (array) ( $_POST['rb_off'] ?? array() ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 		foreach ( rb_weekdays() as $n => $label ) {
-			$parsed = rb_parse_ranges( sanitize_text_field( wp_unslash( $input[ $n ] ?? '' ) ) );
+			$text = '';
+			if ( empty( $off[ $n ] ) ) {
+				$parts = array();
+				foreach ( (array) ( $ui[ $n ] ?? array() ) as $rng ) {
+					$a = sanitize_text_field( wp_unslash( $rng['from'] ?? '' ) );
+					$b = sanitize_text_field( wp_unslash( $rng['to'] ?? '' ) );
+					if ( '' !== $a || '' !== $b ) {
+						$parts[] = $a . '-' . $b;
+					}
+				}
+				$text = implode( ', ', $parts );
+			}
+			$parsed = rb_parse_ranges( $text );
 			if ( null === $parsed ) {
 				$errors[] = $label;
 				$parsed   = ( (array) get_post_meta( $post_id, 'rb_hours', true ) )[ $n ] ?? array();
@@ -267,7 +289,7 @@ function rb_hours_notice() {
 	$errors = get_transient( 'rb_hours_error_' . get_current_user_id() );
 	if ( $errors ) {
 		delete_transient( 'rb_hours_error_' . get_current_user_id() );
-		echo '<div class="notice notice-error"><p>Working hours not saved for: ' . esc_html( implode( ', ', $errors ) ) . '. Use the format 08:00-12:00, 13:00-17:00 in 15-minute steps.</p></div>';
+		echo '<div class="notice notice-error"><p>Working hours not saved for: ' . esc_html( implode( ', ', $errors ) ) . '. Each range needs a start and a later end time in 15-minute steps, and the second range must start after the first ends.</p></div>';
 	}
 }
 add_action( 'admin_notices', 'rb_hours_notice' );

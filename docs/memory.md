@@ -83,7 +83,7 @@ Keep this table and the hub README in sync whenever a site is added, moved or de
 
 | Project | Folder | Status (19 Nov 2026) |
 |---|---|---|
-| Riverside Family Health: booking + reception demo | `Desktop\projects\riverside-booking-case-study` | LIVE 19 Nov; quality-tested (security D to A, SSL A+, AEO 59 to 85%); final video with results; next project |
+| Riverside Family Health: booking + reception demo | `Desktop\projects\riverside-booking-case-study` | LIVE 19 Nov; quality-tested (security D to A, SSL A+, AEO 59 to 85%); final video with results; staff content editing (hours, phone, notice, doctor availability) live + client PDF guide; next: optional video scene |
 | Solar quote system case study | `Desktop\projects\solar-quote-case-study` | Built, tested, video made; Drive upload in progress |
 | HVAC WordPress bug-fix case study | `Desktop\projects\hvac-case-study` | Done; waiting for his review; `hvac-staging` to delete after OK |
 | Portfolio repair (12 demo sites) | progress log `Desktop\portfolio-repair-progress.md` | One site at a time, approval after each |
@@ -104,6 +104,7 @@ Keep this table and the hub README in sync whenever a site is added, moved or de
 
 ## Change log
 
+- 2026-11-19 16:05: Riverside staff content editing (clinic details & hours, notice bar, doctor hours) live after backup; PSI mobile still 100/100/100; staff guide PDF on Drive.
 - 2026-11-19 15:10: Riverside booking system + security/SEO/AEO fixes went live after Mouzzam's OK; handover tests with proof (QUALITY-REPORT.md).
 
 - 2026-11-19 03:25: Riverside video done; next session = SEO/AEO/performance tests with proof screenshots (see project CLAUDE.md "NEXT SESSION").

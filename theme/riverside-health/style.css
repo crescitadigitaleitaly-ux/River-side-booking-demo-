@@ -4,7 +4,7 @@ Theme URI: https://dental.mouzzambuild.com
 Author: Mouzzam Channa (Mouzzam Builds)
 Author URI: https://mouzzambuild.com
 Description: Fast, light block theme for a family medical and dental practice: services, doctors, booking and contact forms. Built as a demonstration website; the clinic, people and data are fictional.
-Version: 1.2.0
+Version: 1.3.0
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 7.4
@@ -1501,3 +1501,7 @@ a[href^="tel:"] {
 
 /* Footer address: keep the list look */
 .rh-footer address { font-style: normal; }
+
+/* Notice bar (staff message with dates, set in wp-admin) */
+.rh-notice-bar { display: flex; justify-content: center; align-items: center; gap: .5rem; padding: .55rem 1rem; background: #fef3c7; color: #78350f; font-weight: 600; font-size: .92rem; text-align: center; }
+.rh-notice-bar svg { width: 1.05em; height: 1.05em; flex: none; }

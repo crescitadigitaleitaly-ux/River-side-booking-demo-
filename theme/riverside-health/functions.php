@@ -11,7 +11,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'RH_VERSION', '1.2.0' );
+define( 'RH_VERSION', '1.3.0' );
 
 require_once __DIR__ . '/inc/data.php';
 require_once __DIR__ . '/inc/sections.php';

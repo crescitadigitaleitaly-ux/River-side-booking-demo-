@@ -8,7 +8,7 @@
 .rb-filters { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: flex-end; background: #fff; border: 1px solid #dcdcde; border-radius: 10px; padding: 12px 14px; margin-bottom: 14px; }
 .rb-filters label { display: grid; gap: 3px; font-size: 12px; font-weight: 600; color: #3c434a; }
 .rb-table td { vertical-align: middle; }
-.rb-table .rb-ref, .rb-wrap h1 { font-family: ui-monospace, Menlo, Consolas, monospace; }
+.rb-table .rb-ref { font-family: ui-monospace, Menlo, Consolas, monospace; }
 .rb-wrap h1.wp-heading-inline { font-family: inherit; }
 .rb-ref { font-weight: 700; text-decoration: none; }
 .rb-dim { color: #646970; font-size: 12px; }
@@ -43,3 +43,10 @@
 .rb-type { font-weight: 600; }
 .rb-mail__frame { width: 100%; min-height: 640px; border: 1px solid #dcdcde; border-radius: 8px; background: #fff; }
 @media (max-width: 782px) { .rb-grid { grid-template-columns: 1fr; } }
+.rb-field { display: grid; gap: 4px; margin: 0 0 14px; }
+.rb-inline label { margin-right: 14px; }
+.rb-hours-table { border-collapse: collapse; }
+.rb-hours-table th, .rb-hours-table td { padding: 6px 10px 6px 0; text-align: left; }
+.rb-hours-table input[type=time] { width: 120px; }
+.rb-day-chip { display: inline-block; width: 26px; text-align: center; margin-right: 3px; padding: 2px 0; border-radius: 6px; background: #dcfce7; color: #166534; font-size: 11px; font-weight: 700; }
+.rb-day-chip.is-off { background: #f0f0f1; color: #8c8f94; }

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>How to update your website – Riverside Family Health</title>
+<style>
+  @page { size: A4; margin: 16mm 14mm; }
+  body { font-family: "Segoe UI", Arial, sans-serif; color: #1f2d33; font-size: 11pt; line-height: 1.5; }
+  h1 { color: #0f766e; font-size: 22pt; margin: 0 0 4pt; }
+  h2 { color: #0f2530; font-size: 14pt; margin: 18pt 0 6pt; border-top: 2px solid #e2ecee; padding-top: 10pt; page-break-after: avoid; }
+  .sub { color: #5b6b75; margin: 0 0 12pt; }
+  .box { background: #eef7f6; border-left: 4px solid #0f766e; padding: 8pt 12pt; margin: 10pt 0; }
+  .warn { background: #fff7ed; border-left-color: #f59e0b; }
+  ol, ul { margin: 4pt 0 8pt 16pt; padding: 0; }
+  li { margin: 2pt 0; }
+  img { width: 100%; border: 1px solid #d9e3e8; border-radius: 6px; margin: 6pt 0 2pt; page-break-inside: avoid; }
+  .cap { color: #5b6b75; font-size: 9pt; margin: 0 0 8pt; }
+  table { border-collapse: collapse; width: 100%; margin: 6pt 0; font-size: 10pt; }
+  td, th { border: 1px solid #d9e3e8; padding: 5pt 7pt; text-align: left; vertical-align: top; }
+  th { background: #f3f7f9; }
+  .page { page-break-before: always; }
+  .foot { color: #8a99a3; font-size: 8.5pt; margin-top: 18pt; }
+</style>
+</head>
+<body>
+<h1>How to update your website</h1>
+<p class="sub">Riverside Family Health · everyday changes you can make yourself, no code needed · demo website with fictional data</p>
+
+<div class="box"><strong>Log in:</strong> go to <em>your-website/wp-login.php</em> and sign in with your <strong>Clinic manager</strong> account. Everything below is in the left menu under <strong>Reception</strong>. Reception staff accounts can manage appointments but cannot change these settings.</div>
+
+<table>
+  <tr><th>I want to…</th><th>Go to</th><th>Takes</th></tr>
+  <tr><td>Change our phone number, email or address</td><td>Reception → Clinic details &amp; hours</td><td>1 minute</td></tr>
+  <tr><td>Change our opening hours</td><td>Reception → Clinic details &amp; hours</td><td>1 minute</td></tr>
+  <tr><td>Show a message like "Closed on Thanksgiving"</td><td>Reception → Clinic details &amp; hours → Notice bar</td><td>1 minute</td></tr>
+  <tr><td>Change a doctor's working days or times</td><td>Reception → Doctors → (doctor)</td><td>2 minutes</td></tr>
+  <tr><td>Block a holiday, training day or a doctor's leave</td><td>Reception → Closures</td><td>1 minute</td></tr>
+  <tr><td>Stop online booking for a doctor or a service</td><td>Reception → Doctors / Services → "Bookable online"</td><td>30 seconds</td></tr>
+</table>
+
+<h2>1. Phone, email, address and opening hours</h2>
+<ol>
+  <li>Open <strong>Reception → Clinic details &amp; hours</strong>.</li>
+  <li>Change the field you need. For opening hours, set the opening and closing time for each day, or tick <strong>Closed</strong>.</li>
+  <li>Click <strong>Save changes</strong>. A green message confirms it; the header, footer, contact page, booking page and the information Google reads all update straight away.</li>
+</ol>
+<img src="img/1-clinic-details.png" alt="Clinic details and hours editor">
+<p class="cap">Clinic details &amp; hours. If something is not valid (for example a closing time before the opening time) nothing is saved and the page tells you what to fix.</p>
+
+<h2 class="page">2. Notice bar (holidays, special news)</h2>
+<ol>
+  <li>In <strong>Clinic details &amp; hours</strong>, tick <strong>Show the notice</strong> and write a short message (max 160 characters).</li>
+  <li>Choose <strong>From</strong> and <strong>Until</strong> dates. The message appears at the top of every page between those dates and disappears by itself afterwards.</li>
+</ol>
+<div class="box warn"><strong>Tip:</strong> a notice only informs patients. To stop bookings on a closed day, also add it under <strong>Closures</strong> (section 4).</div>
+
+<h2>3. A doctor's working hours</h2>
+<ol>
+  <li>Open <strong>Reception → Doctors</strong>. The list shows each doctor's services, working days (green = working, grey = day off) and whether online booking is on.</li>
+  <li>Click the doctor's name. In <strong>Weekly working hours</strong>, set <em>From</em> and <em>To</em> for each day. Use the second pair for a split day (for example 08:00–12:00 and 13:00–17:00), or tick <strong>Day off</strong>.</li>
+  <li>Click <strong>Update</strong>. Online booking immediately offers only these times.</li>
+</ol>
+<img src="img/2-doctors-list.png" alt="Doctors list with availability">
+<p class="cap">Doctors at a glance: services, working days and online booking on/off.</p>
+<img src="img/3-doctor-hours.png" alt="Doctor working hours editor">
+<p class="cap">Working hours with time pickers, in 15-minute steps.</p>
+
+<h2 class="page">4. Holidays, training days and leave</h2>
+<ol>
+  <li>Open <strong>Reception → Closures</strong>.</li>
+  <li>Choose <strong>Whole clinic</strong> or one doctor, the start and end, and a short reason (for example "Public holiday").</li>
+  <li>Click <strong>Add closure</strong>. Those times disappear from online booking at once. Existing confirmed appointments are not moved automatically: reception sees them in the list and can reschedule.</li>
+</ol>
+<img src="img/4-closures.png" alt="Closures and holidays">
+
+<h2>5. Good to know</h2>
+<ul>
+  <li><strong>Who can change what:</strong> Clinic manager = everything on this page. Reception = appointments only. Administrator = everything, plus settings.</li>
+  <li><strong>History:</strong> the clinic details page shows who made the last change and when.</li>
+  <li><strong>Safe by design:</strong> fixed, labelled fields keep the design, speed and accessibility scores intact; invalid entries are never saved.</li>
+  <li><strong>Need something bigger</strong> (new pages, new services texts, photos)? Ask your web developer.</li>
+</ul>
+<img src="img/5-reception.png" alt="Reception desk">
+<p class="cap">The Reception desk, where staff confirm, reschedule or cancel appointment requests.</p>
+
+<p class="foot">Guide for the Riverside Family Health demo website. The clinic, people and data are fictional. Contact details in the screenshots are masked.</p>
+</body>
+</html>
