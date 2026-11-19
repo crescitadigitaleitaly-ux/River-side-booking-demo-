@@ -436,7 +436,7 @@ function rh_footer() {
 		. '<div>' . rh_logo() . '<p>Family medicine, pediatrics, women\'s health, dentistry and heart health under one roof in Riverside.</p></div>'
 		. '<div><h2>Services</h2><ul>' . $services . '</ul></div>'
 		. '<div><h2>Patients</h2><ul><li><a href="' . rh_url( 'book-appointment' ) . '">Book an appointment</a></li><li><a href="' . rh_url( 'doctors' ) . '">Our doctors</a></li><li><a href="' . rh_url( 'patients' ) . '">Patient information</a></li><li><a href="' . rh_url( 'patients', 'insurance' ) . '">Insurance &amp; billing</a></li><li><a href="' . rh_url( 'contact' ) . '">Contact us</a></li></ul></div>'
-		. '<div><h2>Contact</h2><ul><li>' . esc_html( $c['address'] ) . '<br>' . esc_html( $c['city'] ) . '</li><li><a href="tel:' . esc_attr( $c['phone_raw'] ) . '">' . esc_html( $c['phone'] ) . '</a></li><li><a href="mailto:' . esc_attr( $c['email'] ) . '">' . esc_html( $c['email'] ) . '</a></li>' . $hours . '</ul></div>'
+		. '<div><h2>Contact</h2><ul><li><address>' . esc_html( $c['address'] ) . '<br>' . esc_html( $c['city'] ) . '</address></li><li><a href="tel:' . esc_attr( $c['phone_raw'] ) . '">' . esc_html( $c['phone'] ) . '</a></li><li><a href="mailto:' . esc_attr( $c['email'] ) . '">' . esc_html( $c['email'] ) . '</a></li>' . $hours . '</ul></div>'
 		. '</div><div class="rh-footer__bottom"><span>© ' . esc_html( gmdate( 'Y' ) ) . ' Riverside Family Health · <a href="' . rh_url( 'privacy-policy' ) . '">Privacy policy</a></span>'
 		. '<span>Demo website designed and built by <a href="https://mouzzambuild.com/">Mouzzam Builds</a>. Clinic, people and data are fictional.</span></div>'
 		. '</div></footer>';

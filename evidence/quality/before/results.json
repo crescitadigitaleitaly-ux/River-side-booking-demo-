@@ -1,0 +1,243 @@
+{
+  "label": "before",
+  "site": "https://dental.mouzzambuild.com",
+  "psi": {
+    "home-mobile": {
+      "error": "Cannot read properties of undefined (reading 'categories')"
+    },
+    "home-desktop": {
+      "error": "Cannot read properties of undefined (reading 'categories')"
+    },
+    "book-mobile": {
+      "error": "Cannot read properties of undefined (reading 'categories')"
+    },
+    "book-desktop": {
+      "error": "Cannot read properties of undefined (reading 'categories')"
+    }
+  },
+  "security": {
+    "securityHeadersGrade": null,
+    "observatory": {
+      "grade": null,
+      "score": null
+    },
+    "sslLabs": {
+      "status": "READY",
+      "grades": [
+        "A",
+        "A",
+        "A",
+        "A"
+      ]
+    },
+    "headers": {
+      "strict-transport-security": null,
+      "content-security-policy": "upgrade-insecure-requests",
+      "x-frame-options": null,
+      "x-content-type-options": null,
+      "referrer-policy": null,
+      "permissions-policy": null
+    },
+    "wordpress": {
+      "wpVersionInHtml": false,
+      "xmlrpc": 405,
+      "usersApi": 403,
+      "authorEnum": 500,
+      "readme": 200,
+      "uploadsListing": 403,
+      "debugLog": 403,
+      "wpConfigBackup": 403
+    }
+  },
+  "tags": {
+    "home": {
+      "title": "Riverside Family Health &#8211; Family Doctors, Pediatrics &#038; Dentistry",
+      "description": "Riverside Family Health is a demo family medical and dental practice website, with clear paths for patients and referring providers.",
+      "canonical": "https://dental.mouzzambuild.com/",
+      "robots": null,
+      "ogTitle": null,
+      "ogImage": null,
+      "twitterCard": null,
+      "h1": 1,
+      "imgNoAlt": 0,
+      "schema": []
+    },
+    "book": {
+      "title": "Book an Appointment &#8211; Riverside Family Health",
+      "description": "Request an appointment online at Riverside Family Health. Choose a service, a doctor and a time that suits you.",
+      "canonical": "https://dental.mouzzambuild.com/book-appointment/",
+      "robots": null,
+      "ogTitle": null,
+      "ogImage": null,
+      "twitterCard": null,
+      "h1": 1,
+      "imgNoAlt": 0,
+      "schema": []
+    },
+    "doctors": {
+      "title": "Our Doctors &#8211; Riverside Family Health",
+      "description": "Meet the physicians and dentists of Riverside Family Health and book an appointment with the doctor of your choice.",
+      "canonical": "https://dental.mouzzambuild.com/doctors/",
+      "robots": null,
+      "ogTitle": null,
+      "ogImage": null,
+      "twitterCard": null,
+      "h1": 1,
+      "imgNoAlt": 0,
+      "schema": []
+    },
+    "services": {
+      "title": "Services &#8211; Riverside Family Health",
+      "description": "Primary care, pediatrics, women&#039;s health, family dentistry, heart health, lab tests, imaging and vaccinations at Riverside Family Health.",
+      "canonical": "https://dental.mouzzambuild.com/services/",
+      "robots": null,
+      "ogTitle": null,
+      "ogImage": null,
+      "twitterCard": null,
+      "h1": 1,
+      "imgNoAlt": 0,
+      "schema": []
+    },
+    "patients": {
+      "title": "Patient Information &#8211; Riverside Family Health",
+      "description": "Your first visit, insurance and billing, telehealth and frequently asked questions at Riverside Family Health.",
+      "canonical": "https://dental.mouzzambuild.com/patients/",
+      "robots": null,
+      "ogTitle": null,
+      "ogImage": null,
+      "twitterCard": null,
+      "h1": 1,
+      "imgNoAlt": 0,
+      "schema": []
+    },
+    "contact": {
+      "title": "Contact Us &#8211; Riverside Family Health",
+      "description": "Address, phone, opening hours and contact form for Riverside Family Health.",
+      "canonical": "https://dental.mouzzambuild.com/contact/",
+      "robots": null,
+      "ogTitle": null,
+      "ogImage": null,
+      "twitterCard": null,
+      "h1": 1,
+      "imgNoAlt": 0,
+      "schema": []
+    },
+    "w3cHome": {
+      "errors": 0,
+      "warnings": 0
+    },
+    "w3cBook": {
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  "mobile": {
+    "iphone-se-home": {
+      "overflowPx": 0,
+      "smallTaps": 18
+    },
+    "iphone-se-book": {
+      "overflowPx": 0,
+      "smallTaps": 22
+    },
+    "iphone-se-doctors": {
+      "overflowPx": 0,
+      "smallTaps": 17
+    },
+    "iphone-15-home": {
+      "overflowPx": 0,
+      "smallTaps": 19
+    },
+    "iphone-15-book": {
+      "overflowPx": 0,
+      "smallTaps": 23
+    },
+    "iphone-15-doctors": {
+      "overflowPx": 0,
+      "smallTaps": 18
+    },
+    "pixel-7-home": {
+      "overflowPx": 0,
+      "smallTaps": 19
+    },
+    "pixel-7-book": {
+      "overflowPx": 0,
+      "smallTaps": 24
+    },
+    "pixel-7-doctors": {
+      "overflowPx": 0,
+      "smallTaps": 18
+    },
+    "ipad-home": {
+      "overflowPx": 0,
+      "smallTaps": 19
+    },
+    "ipad-book": {
+      "overflowPx": 0,
+      "smallTaps": 24
+    },
+    "ipad-doctors": {
+      "overflowPx": 0,
+      "smallTaps": 18
+    },
+    "laptop-1440-home": {
+      "overflowPx": 0,
+      "smallTaps": 19
+    },
+    "laptop-1440-book": {
+      "overflowPx": 0,
+      "smallTaps": 24
+    },
+    "laptop-1440-doctors": {
+      "overflowPx": 0,
+      "smallTaps": 18
+    }
+  },
+  "finished": "2026-11-19 13:31 UTC",
+  "psi_web": {
+    "home-mobile": [
+      100,
+      100,
+      100,
+      61
+    ],
+    "home-desktop": [
+      100,
+      100,
+      100,
+      61
+    ],
+    "book-mobile": [
+      100,
+      100,
+      100,
+      66
+    ],
+    "book-desktop": [
+      100,
+      100,
+      100,
+      66
+    ],
+    "order": [
+      "performance",
+      "accessibility",
+      "best-practices",
+      "seo"
+    ],
+    "reports": {
+      "home": "https://pagespeed.web.dev/analysis/https-dental-mouzzambuild-com/zgp1k2usag",
+      "book": "https://pagespeed.web.dev/analysis/https-dental-mouzzambuild-com-book-appointment/0vrkgcfdzc"
+    },
+    "date": "2026-11-19 14:14 (Lisbon time)"
+  },
+  "web_tools": {
+    "securityheaders": "D",
+    "observatory": "D 35/100 (8/12)",
+    "ssllabs": "A (4 servers)",
+    "schema_validator": "No items detected",
+    "w3c_home": "0 errors, 0 warnings",
+    "w3c_book": "1 error (maxlength on date input)",
+    "aeo": "78/133 (59%, Not AEO Ready)"
+  }
+}

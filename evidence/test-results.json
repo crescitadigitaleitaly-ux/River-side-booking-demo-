@@ -1,7 +1,7 @@
 {
-  "when": "2026-11-19T01:24:15.128Z",
+  "when": "2026-11-19T13:44:36.956Z",
   "base": "https://mouzzambuild.com/riverside-staging",
-  "seconds": 283,
+  "seconds": 150,
   "passed": 13,
   "total": 13,
   "results": [
@@ -48,7 +48,7 @@
       "name": "Visitor submits a request through the form and gets a reference, status Pending",
       "pass": true,
       "detail": {
-        "reference": "RFH-96SE-86",
+        "reference": "RFH-LB94-17",
         "status": "Pending"
       }
     },
@@ -66,12 +66,12 @@
       "pass": true,
       "detail": [
         {
-          "status": 409,
-          "msg": "Sorry, this time has just been booked. Please choose another time."
-        },
-        {
           "status": 200,
           "msg": "confirmed"
+        },
+        {
+          "status": 409,
+          "msg": "Sorry, this time has just been booked. Please choose another time."
         }
       ]
     },
@@ -135,7 +135,7 @@
       "name": "Staff reschedule keeps the booking confirmed and creates a reschedule notification",
       "pass": true,
       "detail": {
-        "status": "RFH-QAJL-48 Confirmed",
+        "status": "RFH-U9WA-18 Confirmed",
         "notifications": [
           "Request received",
           "Confirmation",

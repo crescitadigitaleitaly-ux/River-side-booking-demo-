@@ -1,0 +1,281 @@
+{
+  "label": "after",
+  "site": "https://dental.mouzzambuild.com",
+  "security": {
+    "securityHeadersGrade": null,
+    "observatory": {
+      "grade": null,
+      "score": null
+    },
+    "sslLabs": {
+      "status": "READY",
+      "grades": [
+        "A",
+        "A",
+        "A",
+        "A"
+      ]
+    },
+    "headers": {
+      "strict-transport-security": "max-age=31536000",
+      "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests, upgrade-insecure-requests",
+      "x-frame-options": "SAMEORIGIN",
+      "x-content-type-options": "nosniff",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+    },
+    "wordpress": {
+      "wpVersionInHtml": false,
+      "xmlrpc": 405,
+      "usersApi": 403,
+      "authorEnum": 301,
+      "readme": 403,
+      "uploadsListing": 403,
+      "debugLog": 403,
+      "wpConfigBackup": 403
+    }
+  },
+  "tags": {
+    "home": {
+      "title": "Riverside Family Health \u00e2\u20ac\u201c Family Doctors, Pediatrics & Dentistry",
+      "description": "Family doctors, pediatrics, women&#039;s health, dentistry and heart care under one roof. See real free times and request an appointment online in a minute.",
+      "canonical": "https://dental.mouzzambuild.com/",
+      "robots": null,
+      "ogTitle": "Riverside Family Health \u00e2\u20ac\u201c Family Doctors, Pediatrics &amp; Dentistry",
+      "ogImage": "https://dental.mouzzambuild.com/wp-content/themes/riverside-health/assets/images/og-image.jpg",
+      "twitterCard": "summary_large_image",
+      "h1": 1,
+      "imgNoAlt": 0,
+      "schema": [
+        "MedicalClinic",
+        "WebSite",
+        "WebPage",
+        "Person",
+        "Person",
+        "Person",
+        "Person",
+        "Person",
+        "Person",
+        "FAQPage"
+      ]
+    },
+    "book": {
+      "title": "Book an Appointment Online \u00e2\u20ac\u201c Riverside Family Health",
+      "description": "Choose a service and doctor, see only real free times and send your request in a minute. Reception confirms every request, usually within one working day.",
+      "canonical": "https://dental.mouzzambuild.com/book-appointment/",
+      "robots": null,
+      "ogTitle": "Book an Appointment Online \u00e2\u20ac\u201c Riverside Family Health",
+      "ogImage": "https://dental.mouzzambuild.com/wp-content/themes/riverside-health/assets/images/og-image.jpg",
+      "twitterCard": "summary_large_image",
+      "h1": 1,
+      "imgNoAlt": 0,
+      "schema": [
+        "MedicalClinic",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList"
+      ]
+    },
+    "doctors": {
+      "title": "Meet Our Doctors and Dentists \u00e2\u20ac\u201c Riverside Family Health",
+      "description": "Meet our family physicians, pediatrician, women&#039;s health specialist, dentist and cardiologist. See each doctor&#039;s services and book with them online.",
+      "canonical": "https://dental.mouzzambuild.com/doctors/",
+      "robots": null,
+      "ogTitle": "Meet Our Doctors and Dentists \u00e2\u20ac\u201c Riverside Family Health",
+      "ogImage": "https://dental.mouzzambuild.com/wp-content/themes/riverside-health/assets/images/og-image.jpg",
+      "twitterCard": "summary_large_image",
+      "h1": 1,
+      "imgNoAlt": 0,
+      "schema": [
+        "MedicalClinic",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "Person",
+        "Person",
+        "Person",
+        "Person",
+        "Person",
+        "Person"
+      ]
+    },
+    "services": {
+      "title": "Family Medical & Dental Services \u00e2\u20ac\u201c Riverside Family Health",
+      "description": "Primary care, pediatrics, women&#039;s health, family dentistry, heart health, lab tests, imaging and vaccinations, all in one clinic with same-week visits.",
+      "canonical": "https://dental.mouzzambuild.com/services/",
+      "robots": null,
+      "ogTitle": "Family Medical &amp; Dental Services \u00e2\u20ac\u201c Riverside Family Health",
+      "ogImage": "https://dental.mouzzambuild.com/wp-content/themes/riverside-health/assets/images/og-image.jpg",
+      "twitterCard": "summary_large_image",
+      "h1": 1,
+      "imgNoAlt": 0,
+      "schema": [
+        "MedicalClinic",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "Service",
+        "Service",
+        "Service",
+        "Service",
+        "Service",
+        "Service",
+        "Service",
+        "Service"
+      ]
+    },
+    "patients": {
+      "title": "Patient Information & FAQ \u00e2\u20ac\u201c Riverside Family Health",
+      "description": "What to bring to your first visit, insurance and billing, telehealth, and answers to common questions from new and returning patients of our clinic.",
+      "canonical": "https://dental.mouzzambuild.com/patients/",
+      "robots": null,
+      "ogTitle": "Patient Information &amp; FAQ \u00e2\u20ac\u201c Riverside Family Health",
+      "ogImage": "https://dental.mouzzambuild.com/wp-content/themes/riverside-health/assets/images/og-image.jpg",
+      "twitterCard": "summary_large_image",
+      "h1": 1,
+      "imgNoAlt": 0,
+      "schema": [
+        "MedicalClinic",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ]
+    },
+    "contact": {
+      "title": "Contact Us & Opening Hours \u00e2\u20ac\u201c Riverside Family Health",
+      "description": "Address, opening hours, phone and email for Riverside Family Health. Send us a message or book online; for emergencies always call 911 straight away.",
+      "canonical": "https://dental.mouzzambuild.com/contact/",
+      "robots": null,
+      "ogTitle": "Contact Us &amp; Opening Hours \u00e2\u20ac\u201c Riverside Family Health",
+      "ogImage": "https://dental.mouzzambuild.com/wp-content/themes/riverside-health/assets/images/og-image.jpg",
+      "twitterCard": "summary_large_image",
+      "h1": 1,
+      "imgNoAlt": 0,
+      "schema": [
+        "MedicalClinic",
+        "WebSite",
+        "WebPage",
+        "BreadcrumbList"
+      ]
+    },
+    "w3cHome": {
+      "errors": 0,
+      "warnings": 0
+    },
+    "w3cBook": {
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  "mobile": {
+    "iphone-se-home": {
+      "overflowPx": 0,
+      "smallTaps": 18
+    },
+    "iphone-se-book": {
+      "overflowPx": 0,
+      "smallTaps": 22
+    },
+    "iphone-se-doctors": {
+      "overflowPx": 0,
+      "smallTaps": 17
+    },
+    "iphone-15-home": {
+      "overflowPx": 0,
+      "smallTaps": 19
+    },
+    "iphone-15-book": {
+      "overflowPx": 0,
+      "smallTaps": 23
+    },
+    "iphone-15-doctors": {
+      "overflowPx": 0,
+      "smallTaps": 18
+    },
+    "pixel-7-home": {
+      "overflowPx": 0,
+      "smallTaps": 19
+    },
+    "pixel-7-book": {
+      "overflowPx": 0,
+      "smallTaps": 24
+    },
+    "pixel-7-doctors": {
+      "overflowPx": 0,
+      "smallTaps": 18
+    },
+    "ipad-home": {
+      "overflowPx": 0,
+      "smallTaps": 19
+    },
+    "ipad-book": {
+      "overflowPx": 0,
+      "smallTaps": 24
+    },
+    "ipad-doctors": {
+      "overflowPx": 0,
+      "smallTaps": 18
+    },
+    "laptop-1440-home": {
+      "overflowPx": 0,
+      "smallTaps": 19
+    },
+    "laptop-1440-book": {
+      "overflowPx": 0,
+      "smallTaps": 24
+    },
+    "laptop-1440-doctors": {
+      "overflowPx": 0,
+      "smallTaps": 18
+    }
+  },
+  "finished": "2026-11-19 14:02 UTC",
+  "psi_web": {
+    "home-mobile": [
+      100,
+      100,
+      100,
+      61
+    ],
+    "home-desktop": [
+      100,
+      100,
+      100,
+      61
+    ],
+    "book-mobile": [
+      100,
+      100,
+      100,
+      66
+    ],
+    "book-desktop": [
+      100,
+      100,
+      100,
+      66
+    ],
+    "order": [
+      "performance",
+      "accessibility",
+      "best-practices",
+      "seo"
+    ],
+    "reports": {
+      "home": "https://pagespeed.web.dev/analysis/https-dental-mouzzambuild-com/ouu1lwqf9g",
+      "book": "https://pagespeed.web.dev/analysis/https-dental-mouzzambuild-com-book-appointment/2oh94lz3fi"
+    },
+    "date": "2026-11-19 ~14:52 (Lisbon time)"
+  },
+  "web_tools": {
+    "securityheaders": "A (capped: unsafe-inline in CSP)",
+    "observatory": "B+ 80/100 (11/12)",
+    "ssllabs": "A+ (all servers)",
+    "schema_validator": "8 items, 0 errors, 0 warnings",
+    "rich_results": "Breadcrumbs, Local business, Organization valid (page noindex on purpose)",
+    "w3c_home": "0 errors, 0 warnings",
+    "w3c_book": "0 errors, 0 warnings",
+    "aeo": "113/133 (85%, Nearly Optimized)"
+  }
+}

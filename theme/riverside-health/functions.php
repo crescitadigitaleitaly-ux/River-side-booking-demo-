@@ -11,12 +11,13 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'RH_VERSION', '1.1.0' );
+define( 'RH_VERSION', '1.2.0' );
 
 require_once __DIR__ . '/inc/data.php';
 require_once __DIR__ . '/inc/sections.php';
 require_once __DIR__ . '/inc/forms.php';
 require_once __DIR__ . '/inc/setup.php';
+require_once __DIR__ . '/inc/seo.php';
 
 /**
  * Theme supports.
@@ -46,11 +47,7 @@ function rh_head() {
 		printf( '<link rel="icon" href="%s" type="image/svg+xml">' . "\n", esc_url( get_theme_file_uri( 'assets/icon.svg' ) ) );
 	}
 	echo '<meta name="theme-color" content="#0f766e">' . "\n";
-	if ( ! defined( 'WPSEO_VERSION' ) && is_singular() && has_excerpt() ) {
-		printf( '<meta name="description" content="%s">' . "\n", esc_attr( get_the_excerpt() ) );
-	} elseif ( ! defined( 'WPSEO_VERSION' ) && is_front_page() ) {
-		printf( '<meta name="description" content="%s">' . "\n", esc_attr( 'Riverside Family Health: primary care, pediatrics, women\'s health, family dentistry and heart health under one roof. Book an appointment online.' ) );
-	}
+	// Meta description, social tags and structured data: see inc/seo.php.
 }
 add_action( 'wp_head', 'rh_head', 1 );
 

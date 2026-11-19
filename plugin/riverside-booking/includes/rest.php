@@ -398,3 +398,47 @@ function rb_query_appointments( $f ) {
 	$sql   = 'SELECT * FROM ' . rb_t( 'appointments' ) . ' WHERE ' . implode( ' AND ', $where ) . " ORDER BY starts_at $order LIMIT $limit";
 	return $args ? $wpdb->get_results( $wpdb->prepare( $sql, $args ) ) : $wpdb->get_results( $sql ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 }
+
+/**
+ * Agent discovery (RFC 9727 API catalog + OpenAPI) for the public availability API,
+ * so AI agents and tools can find how to read free times. Read-only routes only.
+ */
+function rb_well_known() {
+	$path = strtok( (string) ( $_SERVER['REQUEST_URI'] ?? '' ), '?' ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+	$base = rtrim( (string) wp_parse_url( home_url( '/' ), PHP_URL_PATH ), '/' );
+	if ( $path === $base . '/.well-known/api-catalog' ) {
+		status_header( 200 );
+		header( 'Content-Type: application/linkset+json; charset=utf-8' );
+		echo wp_json_encode(
+			array(
+				'linkset' => array(
+					array(
+						'anchor'       => rest_url( 'rb/v1/' ),
+						'service-desc' => array( array( 'href' => home_url( '/.well-known/openapi.json' ), 'type' => 'application/vnd.oai.openapi+json' ) ),
+						'service-doc'  => array( array( 'href' => home_url( '/book-appointment/' ), 'type' => 'text/html' ) ),
+					),
+				),
+			),
+			JSON_UNESCAPED_SLASHES
+		);
+		exit;
+	}
+	if ( $path === $base . '/.well-known/openapi.json' ) {
+		$svc   = array_map( fn( $s ) => $s->slug, array_values( rb_services() ) );
+		$q     = fn( $n, $d, $e = null ) => array( 'name' => $n, 'in' => 'query', 'required' => 'doctor' !== $n && 'from' !== $n, 'description' => $d, 'schema' => array_filter( array( 'type' => 'string', 'enum' => $e ) ) );
+		$spec  = array(
+			'openapi' => '3.1.0',
+			'info'    => array( 'title' => 'Riverside Family Health availability API (demo)', 'version' => RB_VERSION, 'description' => 'Read free appointment times of a fictional demo clinic. Requests are created through the website form; reception confirms them.' ),
+			'servers' => array( array( 'url' => untrailingslashit( rest_url( 'rb/v1' ) ) ) ),
+			'paths'   => array(
+				'/days'  => array( 'get' => array( 'summary' => 'Free times per day for the next 14 days', 'parameters' => array( $q( 'service', 'Service slug', $svc ), $q( 'doctor', 'Doctor slug or "any"' ), $q( 'from', 'Start date YYYY-MM-DD' ) ), 'responses' => array( '200' => array( 'description' => 'List of days with free-time counts' ) ) ) ),
+				'/slots' => array( 'get' => array( 'summary' => 'Free start times on one day', 'parameters' => array( $q( 'service', 'Service slug', $svc ), $q( 'doctor', 'Doctor slug or "any"' ), $q( 'date', 'Date YYYY-MM-DD' ) ), 'responses' => array( '200' => array( 'description' => 'List of free start times (clinic time, Pacific)' ) ) ) ),
+			),
+		);
+		status_header( 200 );
+		header( 'Content-Type: application/vnd.oai.openapi+json; charset=utf-8' );
+		echo wp_json_encode( $spec, JSON_UNESCAPED_SLASHES );
+		exit;
+	}
+}
+add_action( 'parse_request', 'rb_well_known', 0 );
