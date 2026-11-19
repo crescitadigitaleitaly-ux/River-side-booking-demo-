@@ -11,7 +11,7 @@ Turn the fictional Riverside Family Health WordPress demo (https://dental.mouzza
 **Built and all acceptance tests pass on staging (13/13, `evidence/test-results.json`, `TEST-REPORT.md`). Production is untouched.**
 
 Waiting on Mouzzam:
-1. Create the empty **private GitHub repo `riverside-booking-demo`** on github.com (about 1 minute), then we push. The local git repo is already committed.
+1. ~~Create GitHub repo~~ Done: code, screenshots and docs pushed to `River-side-booking-demo-`.
 2. Review staging and decide on **deploying to the live demo** (see "Deploy to production" below).
 3. Approve the video plan (PLAN.md §13) before voice-over credits are spent.
 4. Fill the business details in `memory.md` §1.
@@ -42,7 +42,7 @@ Waiting on Mouzzam:
 | What | Where |
 |---|---|
 | This project (code, docs, tests) | `C:\Users\MouzzamChanna\Desktop\projects\riverside-booking-case-study` (git repo, branch `main`) |
-| GitHub | `crescitadigitaleitaly-ux/riverside-booking-demo` (private, **to be created by Mouzzam**) |
+| GitHub | https://github.com/crescitadigitaleitaly-ux/River-side-booking-demo- (private, branch `main`, pushed 19 Nov 2026) |
 | Google Drive | "Riverside Family Health – Appointment Demo" (id `1sp5i3hjy1LVk6dLo-DfIfYsb7geYcOPE`), subfolders 01 Evidence originals, 02 Evidence blurred, 03 Test reports, 04 Video recordings, 05 Video final, 06 Portfolio |
 | Live site (untouched) | https://dental.mouzzambuild.com, Hostinger `domains/mouzzambuild.com/public_html/dental`, tables `wp_` |
 | Staging | https://mouzzambuild.com/riverside-staging/ (HTTP password, user `rfhstaging`), folder `public_html/riverside-staging`, tables `stg_` in the same DB, `WP_ENVIRONMENT_TYPE=staging`, timezone America/Los_Angeles, all email blocked by `mu-plugins/000-staging-guard.php`, debug log `domains/mouzzambuild.com/rs-staging-debug.log` |
@@ -82,7 +82,7 @@ Uses the global Playwright install (Chromium, `--disable-quic`). About 2–3 min
 
 ## Left / ideas
 
-- GitHub repo + push (Mouzzam creates the repo).
+- ~~GitHub repo + push~~ done 19 Nov.
 - Blurred, platform-safe copies of screenshots for Upwork/Fiverr; video (PLAN.md §13, 60–90 s).
 - Production deploy after review.
 - Optional: calendar (week) view for reception; CSV export; .ics attachment in the confirmation.

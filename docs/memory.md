@@ -58,7 +58,7 @@ Master inventory: `Desktop\projects\live-websites\README.md` (private GitHub rep
 |---|---|---|---|
 | Mouzzam Builds (portfolio) | https://mouzzambuild.com | Theme `mouzzam-builds` on Hostinger `public_html/wp-content/themes/` (backup in hub) | WordPress DB + hub `hostinger/mouzzambuild/` |
 | Brightline Comfort HVAC (demo) | https://hvac.mouzzambuild.com | Astra + Elementor on Hostinger `public_html/hvac` (no own repo) | WordPress DB + hub `hostinger/hvac/`; case study `Desktop\projects\hvac-case-study` |
-| Riverside Family Health (medical demo) | https://dental.mouzzambuild.com · staging https://mouzzambuild.com/riverside-staging/ (password) | Theme `riverside-health` (hub `hostinger/riverside-health/theme`); booking plugin in `Desktop\projects\riverside-booking-case-study` → repo `riverside-booking-demo` (to create) | Copy in theme `inc/data.php` / `sections.php`; Drive "Riverside Family Health – Appointment Demo" |
+| Riverside Family Health (medical demo) | https://dental.mouzzambuild.com · staging https://mouzzambuild.com/riverside-staging/ (password) | Theme `riverside-health` (hub `hostinger/riverside-health/theme`); booking plugin in `Desktop\projects\riverside-booking-case-study` → repo `River-side-booking-demo-` (https://github.com/crescitadigitaleitaly-ux/River-side-booking-demo-) | Copy in theme `inc/data.php` / `sections.php`; Drive "Riverside Family Health – Appointment Demo" |
 | HEBE skincare shop (demo) | https://skincare.mouzzambuild.com | Theme `hebe` + WooCommerce on Hostinger `public_html/skincare` | WooCommerce DB + hub `hostinger/hebe/` |
 | Driftline Workshop (concept) | https://driftline.mouzzambuild.com | GitHub repo `demo-project-` | hub `hostinger/driftline/` |
 | AERVEK (static) | https://aervek.mouzzambuild.com | Static HTML on Hostinger | hub `hostinger/static/aervek/` |
@@ -83,7 +83,7 @@ Keep this table and the hub README in sync whenever a site is added, moved or de
 
 | Project | Folder | Status (19 Nov 2026) |
 |---|---|---|
-| Riverside Family Health: booking + reception demo | `Desktop\projects\riverside-booking-case-study` | Built on staging, 13/13 tests pass; waiting: GitHub repo, production OK, video |
+| Riverside Family Health: booking + reception demo | `Desktop\projects\riverside-booking-case-study` | Built on staging, 13/13 tests pass; code on GitHub; waiting: production OK, video |
 | Solar quote system case study | `Desktop\projects\solar-quote-case-study` | Built, tested, video made; Drive upload in progress |
 | HVAC WordPress bug-fix case study | `Desktop\projects\hvac-case-study` | Done; waiting for his review; `hvac-staging` to delete after OK |
 | Portfolio repair (12 demo sites) | progress log `Desktop\portfolio-repair-progress.md` | One site at a time, approval after each |
